@@ -7,14 +7,18 @@ import com.firebase.client.Firebase;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Firebase ref used to reference our Firebase backend
     public static Firebase ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Sets the Android Context for Firebase
         Firebase.setAndroidContext(this);
 
+        // Creates a new Firebase ref using specified path
         ref = new Firebase("https://questjournal.firebaseio.com/");
     }
 }

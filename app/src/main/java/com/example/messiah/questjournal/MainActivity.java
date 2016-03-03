@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             character.setVisibility(View.VISIBLE);
             pass2.setVisibility(View.VISIBLE);
             createUserClick = 1;
+            return;
         }
         if (createUserClick == 1) {
             if (user.getText().toString().equals("") | password.getText().toString().equals("") | character.getText().toString().equals("") | pass2.getText().toString().equals("")) {

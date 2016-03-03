@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         TextView user = (TextView) findViewById(R.id.username);
         TextView status = (TextView) findViewById(R.id.password);
         final TextView nickname = (TextView) findViewById(R.id.character);
-        
+
         ref.authWithPassword(user.getText().toString(), status.getText().toString(), new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {

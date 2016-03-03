@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthenticated(AuthData authData) {
                 System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
-                Toast.makeText(getApplicationContext(), "success log in", Toast.LENGTH_SHORT).show();
 
+                Toast.makeText(getApplicationContext(), "Logged in successfully.", Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {
                 // there was an error
-                Toast.makeText(getApplicationContext(), "failed to log in", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Failed to log in, please try again.", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -68,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(createUserClick == 0){
             Log.i("create", "entered if");
-            logIn.animate().translationYBy(400f).setDuration(1000);
-            create.animate().translationYBy(400f).setDuration(1000);
+            logIn.setVisibility(View.INVISIBLE);
+            create.animate().translationYBy(150f).setDuration(1000);
             character.setVisibility(View.VISIBLE);
             pass2.setVisibility(View.VISIBLE);
             createUserClick = 1;
@@ -77,9 +77,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (createUserClick == 1) {
             if (user.getText().toString().equals("") | password.getText().toString().equals("") | character.getText().toString().equals("") | pass2.getText().toString().equals("")) {
-                Toast.makeText(getApplicationContext(), "Please fill out all fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please fill out all fields.", Toast.LENGTH_SHORT).show();
             } else if(!password.getText().toString().equals(pass2.getText().toString())){
-                Toast.makeText(getApplicationContext(), "Passwords did not match", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Passwords did not match.", Toast.LENGTH_SHORT).show();
             } else {
                 ref.createUser(user.getText().toString(), password.getText().toString(), new Firebase.ValueResultHandler<Map<String, Object>>() {
                     @Override
@@ -89,13 +89,13 @@ public class MainActivity extends AppCompatActivity {
                         map.put("nickname", character.getText().toString());
                         ref.child("users").child(result.get("uid").toString()).setValue(map);
 
-                        Toast.makeText(getApplicationContext(), "success log in", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_SHORT).show();
                     }
                     @Override
                     public void onError(FirebaseError firebaseError) {
                         // there was an error
                         Log.i("auth", "error creating user");
-                        Toast.makeText(getApplicationContext(), "success log in", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Failed to create account, one or more fields is not valid.", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

@@ -81,8 +81,6 @@ public class MainActivity extends AppCompatActivity {
             } else if(!password.getText().toString().equals(pass2.getText().toString())){
                 Toast.makeText(getApplicationContext(), "Passwords did not match", Toast.LENGTH_SHORT).show();
             } else {
-
-
                 ref.createUser(user.getText().toString(), password.getText().toString(), new Firebase.ValueResultHandler<Map<String, Object>>() {
                     @Override
                     public void onSuccess(Map<String, Object> result) {

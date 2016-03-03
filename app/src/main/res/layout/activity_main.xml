@@ -12,26 +12,58 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
         android:id="@+id/username"
         android:layout_centerHorizontal="true"
-        android:hint="Email" />
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
-        android:inputType="textEmailAddress"
         android:id="@+id/password"
         android:layout_centerHorizontal="true"
-        android:hint="Password" />
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <Button
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Log In"
         android:id="@+id/login_button"
+        android:onClick="signIn"
+        android:layout_below="@+id/create_button"
+        android:layout_alignLeft="@+id/password" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="Create account"
+        android:id="@+id/create_button"
+        android:onClick="create"
         android:layout_below="@+id/password"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignStart="@+id/password" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/character"
+        android:hint="nickname"
+        android:visibility="gone"
+        android:layout_below="@+id/password2"
+        android:layout_alignLeft="@+id/password2"
+        android:layout_alignStart="@+id/password2" />
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/password2"
+        android:hint="Re-enter password"
+        android:visibility="gone"
+        android:layout_below="@+id/password"
+        android:layout_alignLeft="@+id/password"
+        android:layout_alignStart="@+id/password"
+        android:inputType="textPassword" />
 
 </RelativeLayout>

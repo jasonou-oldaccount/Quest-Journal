@@ -7,6 +7,7 @@
     android:id="@+id/mainlayout" >
 
     <ImageView
+        android:id="@+id/main_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/background_main"
@@ -20,10 +21,10 @@
         android:src="@drawable/logo"/>
 
     <EditText
-        android:layout_below="@id/logo"
+        android:id="@+id/username"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:id="@+id/username"
+        android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
         android:background="@drawable/input_fields"
         android:padding="8dp"
@@ -42,9 +43,9 @@
         android:inputType="textPassword" />
 
     <ImageButton
+        android:id="@+id/login_button"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:id="@+id/login_button"
         android:onClick="signIn"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
@@ -52,10 +53,10 @@
         android:layout_marginTop="15dp"/>
 
     <ImageButton
-        android:layout_marginTop="15dp"
+        android:id="@+id/create_button"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:id="@+id/create_button"
+        android:layout_marginTop="15dp"
         android:onClick="create"
         android:layout_below="@+id/login_button"
         android:layout_centerHorizontal="true"
@@ -64,7 +65,7 @@
     <EditText
         android:id="@+id/character"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:hint="Character Name"
         android:visibility="gone"
         android:background="@drawable/input_fields"
@@ -75,7 +76,7 @@
     <EditText
         android:id="@+id/password2"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:hint="Re-enter password"
         android:visibility="gone"
         android:background="@drawable/input_fields"

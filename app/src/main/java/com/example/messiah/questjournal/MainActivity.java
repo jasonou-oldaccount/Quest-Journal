@@ -1,5 +1,6 @@
 package com.example.messiah.questjournal;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
 
                 Toast.makeText(getApplicationContext(), "Logged in successfully.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent("com.example.messiah.questjournal.CharacterActivity"));
             }
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //create account
-    public void create(View v){
+    public void create(final View v){
 
         TextView user = (TextView) findViewById(R.id.username);
         TextView password = (TextView) findViewById(R.id.password);
@@ -84,12 +86,14 @@ public class MainActivity extends AppCompatActivity {
                 ref.createUser(user.getText().toString(), password.getText().toString(), new Firebase.ValueResultHandler<Map<String, Object>>() {
                     @Override
                     public void onSuccess(Map<String, Object> result) {
-                        Log.i("auth","Successfully created user account with uid: " + result.get("uid"));
+                        Log.i("auth", "Successfully created user account with uid: " + result.get("uid"));
                         Map<String, String> map = new HashMap<String, String>();
                         map.put("nickname", character.getText().toString());
                         ref.child("users").child(result.get("uid").toString()).setValue(map);
 
                         Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
+                        signIn(v);
+                        
                     }
                     @Override
                     public void onError(FirebaseError firebaseError) {

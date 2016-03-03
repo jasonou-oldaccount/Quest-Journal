@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthenticated(AuthData authData) {
                 System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
                 Toast.makeText(getApplicationContext(), "success log in", Toast.LENGTH_SHORT).show();
+
             }
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {

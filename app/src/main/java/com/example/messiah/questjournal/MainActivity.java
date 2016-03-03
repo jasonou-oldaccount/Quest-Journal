@@ -18,12 +18,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-//shikaaaaaaaa
+
     // Firebase ref used to reference our Firebase backend
     public static Firebase ref;
     int createUserClick = 0;
 
-    //on create establish firebase connection
+    // on create establish firebase connection
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,26 +36,17 @@ public class MainActivity extends AppCompatActivity {
         ref = new Firebase("https://questjournal.firebaseio.com/");
     }
 
-    //sign in
+    // sign in
     public void signIn(View v){
         TextView user = (TextView) findViewById(R.id.username);
         TextView status = (TextView) findViewById(R.id.password);
         final TextView nickname = (TextView) findViewById(R.id.character);
-
-
+        
         ref.authWithPassword(user.getText().toString(), status.getText().toString(), new Firebase.AuthResultHandler() {
             @Override
             public void onAuthenticated(AuthData authData) {
                 System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
                 Toast.makeText(getApplicationContext(), "success log in", Toast.LENGTH_SHORT).show();
-                // Authentication just completed successfully :)
-//                Map<String, String> map = new HashMap<String, String>();
-//                map.put("provider", authData.getProvider());
-//                if(authData.getProviderData().containsKey("displayName")) {
-//                    map.put("displayName", authData.getProviderData().get("displayName").toString());
-//                }
-
-//                ref.child("users").child(authData.getUid()).setValue(map);
             }
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {
@@ -110,16 +101,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-
         }
-
-
-
-
-//        TranslateAnimation slide = new TranslateAnimation(0,0, Animation.RELATIVE_TO_SELF,Animation.RELATIVE_TO_SELF - 100 );
-
-
-
-
     }
 }

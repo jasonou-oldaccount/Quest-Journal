@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,13 +62,13 @@ public class MainActivity extends AppCompatActivity {
 
         final TextView character = (TextView) findViewById(R.id.character);
         TextView pass2 = (TextView) findViewById(R.id.password2);
-        Button logIn = (Button) findViewById(R.id.login_button);
-        Button create = (Button) findViewById(R.id.create_button);
+        ImageButton logIn = (ImageButton) findViewById(R.id.login_button);
+        ImageButton create = (ImageButton) findViewById(R.id.create_button);
 
         if(createUserClick == 0){
             Log.i("create", "entered if");
-            logIn.animate().translationYBy(700f).setDuration(1000);
-            create.animate().translationYBy(700f).setDuration(1000);
+            logIn.animate().translationYBy(400f).setDuration(1000);
+            create.animate().translationYBy(400f).setDuration(1000);
             character.setVisibility(View.VISIBLE);
             pass2.setVisibility(View.VISIBLE);
             createUserClick = 1;

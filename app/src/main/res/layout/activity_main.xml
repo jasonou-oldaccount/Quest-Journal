@@ -8,7 +8,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/background"
+        android:src="@drawable/background_main"
         android:scaleType="centerCrop" />
 
     <ImageView
@@ -36,24 +36,26 @@
         android:hint="Password"
         android:inputType="textPassword" />
 
-    <Button
+    <ImageButton
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Sign In"
+        android:layout_height="40dp"
         android:id="@+id/login_button"
         android:onClick="signIn"
         android:layout_below="@+id/password"
-        android:layout_alignLeft="@+id/password" />
+        android:layout_alignLeft="@+id/password"
+        android:background="@drawable/sign_in_button"
+        android:layout_marginTop="20dp"/>
 
-    <Button
+    <ImageButton
+        android:layout_marginTop="20dp"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="Create account"
+        android:layout_height="40dp"
         android:id="@+id/create_button"
         android:onClick="create"
         android:layout_below="@+id/login_button"
         android:layout_alignLeft="@+id/password"
-        android:layout_alignStart="@+id/password" />
+        android:layout_alignStart="@+id/password"
+        android:src="@drawable/button" />
 
     <EditText
         android:layout_width="300dp"

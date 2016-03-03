@@ -4,8 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -69,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(createUserClick == 0){
             Log.i("create", "entered if");
-            logIn.animate().translationYBy(1000f).setDuration(1000);
-            create.animate().translationYBy(1000f).setDuration(1000);
+            logIn.animate().translationYBy(700f).setDuration(1000);
+            create.animate().translationYBy(700f).setDuration(1000);
             character.setVisibility(View.VISIBLE);
             pass2.setVisibility(View.VISIBLE);
             createUserClick = 1;

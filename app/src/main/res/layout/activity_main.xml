@@ -6,6 +6,12 @@
     tools:context="com.example.messiah.questjournal.MainActivity">
 
     <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop" />
+
+    <ImageView
         android:id="@+id/logo"
         android:layout_width="fill_parent"
         android:layout_height="170dp"
@@ -33,7 +39,7 @@
     <Button
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="Log In"
+        android:text="Sign In"
         android:id="@+id/login_button"
         android:onClick="signIn"
         android:layout_below="@+id/password"

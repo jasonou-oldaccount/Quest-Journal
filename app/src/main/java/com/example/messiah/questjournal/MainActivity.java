@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         if(createUserClick == 0){
             Log.i("create", "entered if");
             logIn.setVisibility(View.INVISIBLE);
-            create.animate().translationYBy(150f).setDuration(1000);
+            create.animate().translationYBy(100f).setDuration(400);
             character.setVisibility(View.VISIBLE);
             pass2.setVisibility(View.VISIBLE);
             createUserClick = 1;

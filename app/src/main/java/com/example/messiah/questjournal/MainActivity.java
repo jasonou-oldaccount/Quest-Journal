@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                         map.put("nickname", character.getText().toString());
                         ref.child("users").child(result.get("uid").toString()).setValue(map);
 
-                        Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
                     }
                     @Override
                     public void onError(FirebaseError firebaseError) {

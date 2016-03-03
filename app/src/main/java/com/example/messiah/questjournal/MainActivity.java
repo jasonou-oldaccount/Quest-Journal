@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // sign in
-    public void signIn(View v){
+    public void signIn(View v) {
         TextView user = (TextView) findViewById(R.id.username);
         TextView status = (TextView) findViewById(R.id.password);
         final TextView nickname = (TextView) findViewById(R.id.character);
@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
                         Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
                         signIn(v);
-                        
                     }
                     @Override
                     public void onError(FirebaseError firebaseError) {

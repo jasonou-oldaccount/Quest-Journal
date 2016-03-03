@@ -1,5 +1,6 @@
 package com.example.messiah.questjournal;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onAuthenticated(AuthData authData) {
                 System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
                 Toast.makeText(getApplicationContext(), "Logged in successfully.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent("com.example.messiah.questjournal.CharacterActivity"));
             }
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {
@@ -89,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                         ref.child("users").child(result.get("uid").toString()).setValue(map);
 
                         Toast.makeText(getApplicationContext(), "Logged in successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent("com.example.messiah.questjournal.CharacterActivity"));
                     }
                     @Override
                     public void onError(FirebaseError firebaseError) {

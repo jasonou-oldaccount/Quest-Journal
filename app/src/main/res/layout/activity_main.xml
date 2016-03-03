@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.messiah.questjournal.MainActivity">
+    tools:context="com.example.messiah.questjournal.MainActivity"
+    android:id="@+id/mainlayout" >
 
     <ImageView
         android:layout_width="match_parent"
@@ -15,23 +16,27 @@
         android:id="@+id/logo"
         android:layout_width="fill_parent"
         android:layout_height="170dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:src="@drawable/logo"/>
 
     <EditText
         android:layout_below="@id/logo"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:id="@+id/username"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/input_fields"
+        android:padding="8dp"
         android:hint="Email"
         android:inputType="textEmailAddress" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/username"
         android:id="@+id/password"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:background="@drawable/input_fields"
+        android:padding="8dp"
+        android:layout_below="@id/username"
         android:layout_centerHorizontal="true"
         android:hint="Password"
         android:inputType="textPassword" />
@@ -42,40 +47,41 @@
         android:id="@+id/login_button"
         android:onClick="signIn"
         android:layout_below="@+id/password"
-        android:layout_alignLeft="@+id/password"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/sign_in_button"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="15dp"/>
 
     <ImageButton
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:id="@+id/create_button"
         android:onClick="create"
         android:layout_below="@+id/login_button"
-        android:layout_alignLeft="@+id/password"
-        android:layout_alignStart="@+id/password"
-        android:src="@drawable/button" />
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/sign_up_button" />
 
     <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
         android:id="@+id/character"
-        android:hint="nickname"
-        android:visibility="gone"
-        android:layout_below="@+id/password2"
-        android:layout_alignLeft="@+id/password2"
-        android:layout_alignStart="@+id/password2" />
-
-    <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:hint="Character Name"
+        android:visibility="gone"
+        android:background="@drawable/input_fields"
+        android:padding="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/password2" />
+
+    <EditText
         android:id="@+id/password2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:hint="Re-enter password"
         android:visibility="gone"
+        android:background="@drawable/input_fields"
+        android:padding="8dp"
         android:layout_below="@+id/password"
-        android:layout_alignLeft="@+id/password"
-        android:layout_alignStart="@+id/password"
+        android:layout_centerHorizontal="true"
         android:inputType="textPassword" />
 
 </RelativeLayout>

@@ -97,8 +97,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(FirebaseError firebaseError) {
                         // there was an error
+                        Log.i("authDetails", firebaseError.getDetails());
+                        Log.i("authMessage", firebaseError.getMessage());
                         Log.i("auth", "error creating user");
-                        Toast.makeText(getApplicationContext(), "Failed to create account, one or more fields is not valid.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), firebaseError.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

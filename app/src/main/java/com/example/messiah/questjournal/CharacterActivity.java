@@ -59,4 +59,7 @@ public class CharacterActivity extends AppCompatActivity {
 
     }
 
+
+
+
 }

@@ -14,10 +14,11 @@
         android:background="@drawable/noob_char"/>
 
     <TextView
+        android:id="@+id/character_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/character_image"
-        android:text="NICKNAME"
+        android:text=""
         android:textSize="30dp"
         android:layout_centerHorizontal="true"/>
 

@@ -1,5 +1,7 @@
 package com.example.messiah.questjournal;
 
+import android.app.LocalActivityManager;
+import android.app.TabActivity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,7 +12,7 @@ import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 
-public class CharacterActivity extends AppCompatActivity {
+public class CharacterActivity extends TabActivity {
 
     Firebase ref;
 
@@ -22,33 +24,39 @@ public class CharacterActivity extends AppCompatActivity {
 
         ref = MainActivity.ref;
 
-        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
-        tabHost.setup();
+        TabHost mTabHost = getTabHost();
 
-        TabHost.TabSpec tabSpec = tabHost.newTabSpec("Char");
-        tabSpec.setContent(R.id.character_tab);
-        tabSpec.setIndicator("Char");
-        tabHost.addTab(tabSpec);
+        mTabHost.addTab(mTabHost
+                .newTabSpec("character")
+                .setIndicator("Char")
+                .setContent(new Intent(this, CharacterTabActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
-        tabSpec = tabHost.newTabSpec("Qst");
-        tabSpec.setContent(R.id.quest_tab);
-        tabSpec.setIndicator("Qst");
-        tabHost.addTab(tabSpec);
+        mTabHost.addTab(mTabHost
+                .newTabSpec("quest")
+                .setIndicator("Quest")
+                .setContent(new Intent(this, QuestTabActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
-        tabSpec = tabHost.newTabSpec("Shp");
-        tabSpec.setContent(R.id.shop_tab);
-        tabSpec.setIndicator("Shp");
-        tabHost.addTab(tabSpec);
+        mTabHost.addTab(mTabHost
+                .newTabSpec("shop")
+                .setIndicator("Shop")
+                .setContent(new Intent(this, ShopTabActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
-        tabSpec = tabHost.newTabSpec("Ach");
-        tabSpec.setIndicator("", getResources().getDrawable(R.drawable.achievement_tab));
-        tabSpec.setContent(R.id.achievement_tab);
-        tabHost.addTab(tabSpec);
+        mTabHost.addTab(mTabHost
+                .newTabSpec("Achieve")
+                .setIndicator("Achieve")
+                .setContent(new Intent(this, AchievementTabActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
-        tabSpec = tabHost.newTabSpec("Set");
-        tabSpec.setContent(R.id.setting_tab);
-        tabSpec.setIndicator("Set");
-        tabHost.addTab(tabSpec);
+        mTabHost.addTab(mTabHost
+                .newTabSpec("Setting")
+                .setIndicator("Setting")
+                .setContent(new Intent(this, SettingTabActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
+
+        mTabHost.setCurrentTab(0);
     }
 
     public void logOut(View view){
@@ -56,6 +64,5 @@ public class CharacterActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "logged out", Toast.LENGTH_SHORT).show();
         Log.i("auth", "logged out");
         startActivity(new Intent(this, MainActivity.class));
-
     }
 }

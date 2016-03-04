@@ -23,7 +23,6 @@ public class CharacterTabActivity extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                System.out.println(snapshot.getValue());
                 TextView textview_nickname = (TextView) findViewById(R.id.character_nickname);
                 textview_nickname.setText(snapshot.getValue().toString());
             }

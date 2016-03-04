@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         ref = new Firebase("https://questjournal.firebaseio.com/");
 
         if(ref.getAuth() != null){
+            AuthData authData = ref.getAuth();
+            UID = authData.getUid().toString();
+
             Intent newIntent = new Intent(MainActivity.this, CharacterActivity.class);
             newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

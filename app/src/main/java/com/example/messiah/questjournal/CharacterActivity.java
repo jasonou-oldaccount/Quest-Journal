@@ -41,8 +41,8 @@ public class CharacterActivity extends AppCompatActivity {
         tabHost.addTab(tabSpec);
 
         tabSpec = tabHost.newTabSpec("Ach");
+        tabSpec.setIndicator("", getResources().getDrawable(R.drawable.achievement_tab));
         tabSpec.setContent(R.id.achievement_tab);
-        tabSpec.setIndicator("Ach");
         tabHost.addTab(tabSpec);
 
         tabSpec = tabHost.newTabSpec("Set");

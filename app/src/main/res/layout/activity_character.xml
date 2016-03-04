@@ -5,4 +5,43 @@
     android:layout_height="match_parent"
     tools:context="com.example.messiah.questjournal.CharacterActivity">
 
+    <TabHost
+        android:id="@+id/tabHost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:layout_marginBottom="-5dp"></TabWidget>
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_weight="1">
+
+                <include layout="@layout/character_partial" />
+                <include layout="@layout/quest_partial" />
+                <include layout="@layout/shop_partial" />
+                <include layout="@layout/achievement_partial" />
+                <include layout="@layout/setting_partial" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </TabHost>
+
 </RelativeLayout>

@@ -28,31 +28,31 @@ public class CharacterActivity extends TabActivity {
 
         mTabHost.addTab(mTabHost
                 .newTabSpec("character")
-                .setIndicator("Char")
+                .setIndicator("", getResources().getDrawable(R.drawable.character_tab_icon))
                 .setContent(new Intent(this, CharacterTabActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
         mTabHost.addTab(mTabHost
                 .newTabSpec("quest")
-                .setIndicator("Quest")
+                .setIndicator("", getResources().getDrawable(R.drawable.quest_tab_icon))
                 .setContent(new Intent(this, QuestTabActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
         mTabHost.addTab(mTabHost
                 .newTabSpec("shop")
-                .setIndicator("Shop")
+                .setIndicator("", getResources().getDrawable(R.drawable.shop_tab_icon))
                 .setContent(new Intent(this, ShopTabActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
         mTabHost.addTab(mTabHost
                 .newTabSpec("Achieve")
-                .setIndicator("Achieve")
+                .setIndicator("", getResources().getDrawable(R.drawable.achievement_tab_icon))
                 .setContent(new Intent(this, AchievementTabActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
         mTabHost.addTab(mTabHost
                 .newTabSpec("Setting")
-                .setIndicator("Setting")
+                .setIndicator("", getResources().getDrawable(R.drawable.setting_tab_icon))
                 .setContent(new Intent(this, SettingTabActivity.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 

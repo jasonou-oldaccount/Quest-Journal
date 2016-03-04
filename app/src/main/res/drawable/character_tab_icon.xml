@@ -4,5 +4,5 @@
     <!-- <item android:drawable="@drawable/icon1"
         android:state_selected="true" /> -->
     <!-- When not selected, use icon2-->
-    <item android:drawable="@drawable/character_icon_unclicked" />
+    <item android:drawable="@drawable/character_clicked" />
 </selector>

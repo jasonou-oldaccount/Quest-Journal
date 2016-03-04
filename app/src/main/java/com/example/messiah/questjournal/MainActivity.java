@@ -33,6 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Creates a new Firebase ref using specified path
         ref = new Firebase("https://questjournal.firebaseio.com/");
+
+        if(ref.getAuth() != null){
+            startActivity(new Intent("com.example.messiah.questjournal.CharacterActivity"));
+        }
+
     }
 
     // sign in

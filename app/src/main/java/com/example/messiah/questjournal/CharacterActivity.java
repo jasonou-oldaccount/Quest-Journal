@@ -1,8 +1,12 @@
 package com.example.messiah.questjournal;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.firebase.client.Firebase;
 
@@ -46,4 +50,13 @@ public class CharacterActivity extends AppCompatActivity {
         tabSpec.setIndicator("Set");
         tabHost.addTab(tabSpec);
     }
+
+    public void logOut(View view){
+        ref.unauth();
+        Toast.makeText(getApplicationContext(), "logged out", Toast.LENGTH_SHORT).show();
+        Log.i("auth", "logged out");
+        startActivity(new Intent(this, MainActivity.class));
+
+    }
+
 }

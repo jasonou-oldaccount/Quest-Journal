@@ -35,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
         ref = new Firebase("https://questjournal.firebaseio.com/");
 
         if(ref.getAuth() != null){
-            startActivity(new Intent("com.example.messiah.questjournal.CharacterActivity"));
+            Intent newIntent = new Intent(MainActivity.this, CharacterActivity.class);
+            newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(newIntent);
         }
 
     }
@@ -52,7 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
 
                 Toast.makeText(getApplicationContext(), "Logged in successfully.", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent("com.example.messiah.questjournal.CharacterActivity"));
+                Intent newIntent = new Intent(MainActivity.this, CharacterActivity.class);
+                newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(newIntent);
             }
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {
@@ -102,9 +108,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onError(FirebaseError firebaseError) {
                         // there was an error
-                        Log.i("authDetails", firebaseError.getDetails());
-                        Log.i("authMessage", firebaseError.getMessage());
-                        Log.i("auth", "error creating user");
                         Toast.makeText(getApplicationContext(), firebaseError.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -19,7 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".CharacterActivity"
             android:screenOrientation="portrait">
@@ -29,6 +28,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".CharacterTabActivity" />
+        <activity android:name=".QuestTabActivity" />
+        <activity android:name=".ShopTabActivity" />
+        <activity android:name=".AchievementTabActivity" />
+        <activity android:name=".SettingTabActivity"></activity>
     </application>
 
 </manifest>

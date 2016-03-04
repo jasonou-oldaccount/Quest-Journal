@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Firebase ref used to reference our Firebase backend
     public static Firebase ref;
+    public static String UID;
     int createUserClick = 0;
 
     // on create establish firebase connection
@@ -35,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
         ref = new Firebase("https://questjournal.firebaseio.com/");
 
         if(ref.getAuth() != null){
+            AuthData authData = ref.getAuth();
+            UID = authData.getUid().toString();
+
             Intent newIntent = new Intent(MainActivity.this, CharacterActivity.class);
             newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -53,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthenticated(AuthData authData) {
                 System.out.println("User ID: " + authData.getUid() + ", Provider: " + authData.getProvider());
+                UID = authData.getUid().toString();
 
                 Toast.makeText(getApplicationContext(), "Logged in successfully.", Toast.LENGTH_SHORT).show();
                 Intent newIntent = new Intent(MainActivity.this, CharacterActivity.class);

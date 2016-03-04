@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     public void signIn(View v) {
         TextView user = (TextView) findViewById(R.id.username);
         TextView status = (TextView) findViewById(R.id.password);
-        final TextView nickname = (TextView) findViewById(R.id.character);
+//        final TextView nickname = (TextView) findViewById(R.id.character);
 
         ref.authWithPassword(user.getText().toString(), status.getText().toString(), new Firebase.AuthResultHandler() {
             @Override
@@ -107,7 +107,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onSuccess(Map<String, Object> result) {
                         Log.i("auth", "Successfully created user account with uid: " + result.get("uid"));
                         Map<String, String> map = new HashMap<String, String>();
+//                        Map<String, Integer> expMap = new HashMap<String, Integer>();
                         map.put("nickname", character.getText().toString());
+                        map.put("exp", "0");
                         ref.child("users").child(result.get("uid").toString()).setValue(map);
 
                         Toast.makeText(getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();

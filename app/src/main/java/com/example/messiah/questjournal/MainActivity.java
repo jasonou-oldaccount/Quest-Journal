@@ -30,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Sets the Android Context for Firebase
+
+        //enables offline capabilities
+        //Firebase.getDefaultConfig().setPersistenceEnabled(true);
+
         Firebase.setAndroidContext(this);
 
         // Creates a new Firebase ref using specified path
@@ -44,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(newIntent);
         }
-
     }
 
     // sign in

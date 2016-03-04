@@ -20,9 +20,34 @@
         android:layout_height="wrap_content"
         android:text="Log Out"
         android:id="@+id/logOutButton"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="79dp"
-        android:onClick="logOut" />
+        android:onClick="logOut"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/settings_nickname"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Change Nickname"
+        android:id="@+id/textView3"
+        android:layout_above="@+id/settings_nickname"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:id="@+id/button"
+        android:onClick="updateNickname"
+        android:layout_marginBottom="62dp"
+        android:layout_above="@+id/logOutButton"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

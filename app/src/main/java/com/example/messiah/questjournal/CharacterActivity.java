@@ -58,8 +58,4 @@ public class CharacterActivity extends AppCompatActivity {
         startActivity(new Intent(this, MainActivity.class));
 
     }
-
-
-
-
 }

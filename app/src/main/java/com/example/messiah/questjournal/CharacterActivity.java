@@ -26,6 +26,8 @@ public class CharacterActivity extends TabActivity {
 
         TabHost mTabHost = getTabHost();
 
+        mTabHost.getTabWidget().setStripEnabled(false);
+
         mTabHost.addTab(mTabHost
                 .newTabSpec("character")
                 .setIndicator("", getResources().getDrawable(R.drawable.character_tab_icon))
@@ -57,12 +59,5 @@ public class CharacterActivity extends TabActivity {
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
         mTabHost.setCurrentTab(0);
-    }
-
-    public void logOut(View view){
-        ref.unauth();
-        Toast.makeText(getApplicationContext(), "logged out", Toast.LENGTH_SHORT).show();
-        Log.i("auth", "logged out");
-        startActivity(new Intent(this, MainActivity.class));
     }
 }

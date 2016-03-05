@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/QuestJournal.iml" filepath="$PROJECT_DIR$/QuestJournal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Quest-Journal.iml" filepath="$PROJECT_DIR$/Quest-Journal.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mergeQuest.iml" filepath="$PROJECT_DIR$/mergeQuest.iml" />
     </modules>
   </component>
 </project>

@@ -43,7 +43,7 @@
         android:layout_below="@id/description_input"
         android:layout_centerHorizontal="true"
         android:background="@drawable/input_fields"
-        android:hint="Date"
+        android:hint="Deadline (Date)"
         android:padding="10dp"/>
 
     <Button

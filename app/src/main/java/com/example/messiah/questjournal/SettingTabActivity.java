@@ -32,7 +32,8 @@ public class SettingTabActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 EditText textview_nickname = (EditText) findViewById(R.id.settings_nickname);
-                textview_nickname.setText(snapshot.getValue().toString());
+                textview_nickname.setText("");
+                textview_nickname.setHint("Change nickname: " + snapshot.getValue().toString());
             }
 
             @Override

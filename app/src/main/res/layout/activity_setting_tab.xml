@@ -2,7 +2,7 @@
 <RelativeLayout
     android:id="@+id/setting_tab"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -16,31 +16,30 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true" />
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_below="@id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Change Nickname"
-        android:id="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/settings_nickname"
-        android:layout_below="@id/textView3"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:hint="Change Nickname"
+            android:padding="10dp"
+            android:id="@+id/settings_nickname"
+            android:background="@drawable/input_fields" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:id="@+id/button"
-        android:onClick="updateNickname"
-        android:layout_marginBottom="62dp"
-        android:layout_below="@id/settings_nickname"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="-5dp"
+            android:text="Save"
+            android:id="@+id/button"
+            android:onClick="updateNickname" />
+
+    </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"

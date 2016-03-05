@@ -23,7 +23,7 @@ public class QuestTabActivity extends AppCompatActivity {
         String ref_quest = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests/";
         Firebase newQuest = new Firebase(ref_quest);
 
-        
+
 
         EditText title_quest = (EditText) findViewById(R.id.title_input);
         EditText difficulty_quest = (EditText) findViewById(R.id.title_input);
@@ -31,8 +31,6 @@ public class QuestTabActivity extends AppCompatActivity {
         EditText title_quest = (EditText) findViewById(R.id.title_input);
 
         QuestObject createQuest = new QuestObject("Quest 1", 1, "This is the first quest", 01012016);
-
-
 
         newQuest.push().setValue(createQuest);
 

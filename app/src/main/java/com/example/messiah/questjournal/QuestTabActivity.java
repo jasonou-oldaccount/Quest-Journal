@@ -32,7 +32,6 @@ public class QuestTabActivity extends TabActivity {
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
 
-        newQuest.push().setValue(createQuest);
         qTabHost.addTab(qTabHost
                 .newTabSpec("Old")
                 .setIndicator("Old")

@@ -28,7 +28,7 @@ public class QuestObject {
         return difficulty;
     }
 
-    public String getDiscription() {
+    public String getDescription() {
         return description;
     }
 

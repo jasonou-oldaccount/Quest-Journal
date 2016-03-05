@@ -65,4 +65,14 @@
         android:layout_centerHorizontal="true"
         android:onClick="createQuest"/>
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_below="@+id/create_quest"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp" />
+
 </RelativeLayout>

@@ -32,7 +32,10 @@
         <activity android:name=".QuestTabActivity" />
         <activity android:name=".ShopTabActivity" />
         <activity android:name=".AchievementTabActivity" />
-        <activity android:name=".SettingTabActivity"></activity>
+        <activity android:name=".SettingTabActivity" />
+        <activity android:name=".QuestTabCreateTab" />
+        <activity android:name=".QuestTabOldTab" />
+        <activity android:name=".QuestTabViewTab"></activity>
     </application>
 
 </manifest>

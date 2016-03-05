@@ -30,7 +30,7 @@
 
             <TabWidget
                 android:id="@android:id/tabs"
-                android:layout_margin="-5dp"
+                android:layout_marginBottom="-6.5dp"
                 android:fadingEdge="none"
                 android:showDividers="none"
                 android:layout_width="match_parent"

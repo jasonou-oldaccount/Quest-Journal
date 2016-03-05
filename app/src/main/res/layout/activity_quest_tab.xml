@@ -62,6 +62,7 @@
         android:layout_height="60dp"
         android:layout_below="@id/deadline_input"
         android:text="Create Quest"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:onClick="createQuest"/>
 
 </RelativeLayout>

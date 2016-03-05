@@ -4,6 +4,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.firebase.client.Firebase;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 public class QuestTabActivity extends AppCompatActivity {
 
     @Override
@@ -12,8 +18,13 @@ public class QuestTabActivity extends AppCompatActivity {
         setContentView(R.layout.activity_quest_tab);
     }
 
-    public void saveQuest(View view){
-        String ref_quest = "https://questjournal.firebaseio.com/users/" + MainActivity.UID
+    public void createQuest(View view){
+        String ref_quest = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests/";
+        Firebase newQuest = new Firebase(ref_quest);
+
+        QuestObject createQuest = new QuestObject("Quest 1", 1, "This is the first quest", 01012016);
+
+        newQuest.push().setValue(createQuest);
     }
 
 }

@@ -2,6 +2,7 @@ package com.example.messiah.questjournal;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -14,18 +15,13 @@ import java.util.ArrayList;
 
 public class QuestTabViewTab extends AppCompatActivity {
 
-
     private MyAdapter myAdapter;
-
     private ArrayList<ListElement> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest_tab_view_tab);
-
-
-
     }
 
     @Override
@@ -46,9 +42,8 @@ public class QuestTabViewTab extends AppCompatActivity {
     }
 
     public void getQuests(){
-        Firebase ref = new Firebase("https://questjournal.firebaseio.com/users/931b4d56-bf3e-4e12-a53b-fe6d52847324/CurrentQuests");
-
-        // Attach an listener to read the data at our posts reference
+        Firebase ref = new Firebase("https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests");
+        // Attach a listener to read the data at our posts reference
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -57,14 +52,14 @@ public class QuestTabViewTab extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     QuestObject quest = postSnapshot.getValue(QuestObject.class);
                     arrayList.add(new ListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), Integer.toString(quest.getDifficulty())));
-                    System.out.println(quest.getTitle() + " --- " + quest.getDescription());
+                    Log.i("mydebug",quest.getTitle() + " --- " + quest.getDescription());
                 }
                 myAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
-                System.out.println("The read failed: " + firebaseError.getMessage());
+                Log.i("mydebug", "The read failed: " + firebaseError.getMessage());
             }
         });
     }

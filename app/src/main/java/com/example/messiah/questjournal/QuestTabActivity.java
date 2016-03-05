@@ -46,13 +46,4 @@ public class QuestTabActivity extends TabActivity {
         qTabHost.setCurrentTab(0);
     }
 
-    public void createQuest(View view) {
-        String ref_quest = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests/";
-        Firebase newQuest = new Firebase(ref_quest);
-
-        QuestObject createQuest = new QuestObject("Quest 1", 1, "This is the first quest", 01012016);
-
-        newQuest.push().setValue(createQuest);
-    }
-
 }

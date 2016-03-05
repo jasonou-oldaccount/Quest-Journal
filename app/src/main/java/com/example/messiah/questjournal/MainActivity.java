@@ -6,7 +6,7 @@ import android.os.Bundle;
 import com.firebase.client.Firebase;
 
 public class MainActivity extends AppCompatActivity {
-//shikaaaaaaaa
+
     // Firebase ref used to reference our Firebase backend
     public static Firebase ref;
 

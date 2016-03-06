@@ -1,7 +1,12 @@
 package com.example.messiah.questjournal;
 
+import android.app.Activity;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
@@ -10,6 +15,8 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
 public class CharacterTabActivity extends AppCompatActivity {
+
+    ImageButton char_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,5 +38,32 @@ public class CharacterTabActivity extends AppCompatActivity {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
+
+        char_button = (ImageButton) findViewById(R.id.character_image);
+        // char_button.setOnTouchListener(this);
     }
+
+    /* float x, y = 0.0f;
+    boolean moving = false;
+
+    @Override
+    public boolean onTouch(View arg0, MotionEvent arg1) {
+        switch(arg1.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                moving = true;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if(moving) {
+                    x = arg1.getRawX() - char_button.getWidth()/2;
+                    y = arg1.getRawY() - char_button.getHeight()/2;
+                    char_button.setX(x);
+                    char_button.setY(y);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                moving = false;
+                break;
+        }
+        return true;
+    } */
 }

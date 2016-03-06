@@ -32,9 +32,7 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:layout_weight="1"></FrameLayout>
-
         </LinearLayout>
-
     </TabHost>
 
 </RelativeLayout>

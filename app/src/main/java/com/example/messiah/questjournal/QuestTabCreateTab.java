@@ -2,8 +2,11 @@ package com.example.messiah.questjournal;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
@@ -28,11 +31,31 @@ public class QuestTabCreateTab extends AppCompatActivity {
         if (title.getText().toString().equals ("") | diff.getText().toString().equals ("") |
                 desc.getText().toString().equals("") | dateInput.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Please fill out all fields.", Toast.LENGTH_SHORT).show();
+            return;
         }
         int difficulty = 0;
         int date = 0;
         try {
-            difficulty = Integer.parseInt(diff.getText().toString());
+            RadioGroup difficultySelection = (RadioGroup) findViewById(R.id.difficulty_i);
+            int selectedID = difficultySelection.getCheckedRadioButtonId();
+            Log.i("debugRadio", Integer.toString(selectedID));
+
+            RadioButton radioSelection = (RadioButton) findViewById(selectedID);
+            System.out.println("debugRadioSelection" + radioSelection.getText());
+            switch (radioSelection.getText().toString()){
+                case "noob":
+                    difficulty = 0;
+                    break;
+                case "pleb":
+                    difficulty = 1;
+                    break;
+                case "veteran":
+                    difficulty = 2;
+                    break;
+            }
+
+
+
         } catch (NumberFormatException e) {
             Toast.makeText(getApplicationContext(), "Please enter a valid difficulty level.", Toast.LENGTH_SHORT).show();
         }
@@ -44,7 +67,12 @@ public class QuestTabCreateTab extends AppCompatActivity {
 
 
         QuestObject createQuest = new QuestObject(title.getText().toString(), difficulty, desc.getText().toString(), date);
-
         newQuest.push().setValue(createQuest);
+        Toast.makeText(getApplicationContext(), "Quest created!", Toast.LENGTH_SHORT).show();
+
+        title.setText("");
+        diff.setText("");
+        desc.setText("");
+        dateInput.setText("");
     }
 }

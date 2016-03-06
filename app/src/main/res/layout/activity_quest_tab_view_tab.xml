@@ -12,8 +12,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_above="@+id/linearLayout">
+        android:layout_height="fill_parent">
 
         <ListView
             android:layout_width="match_parent"
@@ -32,43 +31,5 @@
             android:fastScrollEnabled="false" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#d35400"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/linearLayout"
-        android:layout_alignParentRight="false"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="true">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Refresh"
-                android:id="@+id/button"
-                android:onClick="refreshQuests" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="No Result found"
-        android:id="@+id/noResult"
-        android:visibility="invisible"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp" />
 
 </RelativeLayout>

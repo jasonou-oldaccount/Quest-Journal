@@ -26,16 +26,13 @@ public class QuestTabViewTab extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        super.onResume();
+
         arrayList = new ArrayList<ListElement>();
         myAdapter = new MyAdapter(this, R.layout.list_element , arrayList);
         ListView myListView = (ListView) findViewById(R.id.questListView);
         myListView.setAdapter(myAdapter);
-        getQuests();
-        myAdapter.notifyDataSetChanged();
-        super.onResume();
-    }
 
-    public void getQuests(){
         Firebase ref = new Firebase("https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests");
         // Attach a listener to read the data at our posts reference
 
@@ -47,7 +44,7 @@ public class QuestTabViewTab extends AppCompatActivity {
                     QuestObject quest = postSnapshot.getValue(QuestObject.class);
 
                     String difficulty = "noob";
-                    switch (quest.getDifficulty()){
+                    switch (quest.getDifficulty()) {
                         case 1:
                             difficulty = "pleb";
                             break;

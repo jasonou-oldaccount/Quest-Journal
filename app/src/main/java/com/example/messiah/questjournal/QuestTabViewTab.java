@@ -35,8 +35,6 @@ public class QuestTabViewTab extends AppCompatActivity {
         super.onResume();
     }
 
-
-
     public void getQuests(){
         Firebase ref = new Firebase("https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests");
         // Attach a listener to read the data at our posts reference
@@ -50,18 +48,16 @@ public class QuestTabViewTab extends AppCompatActivity {
 
                     String difficulty = "noob";
                     switch (quest.getDifficulty()){
-                        case 0:
-                            difficulty = "noob";
-                            break;
                         case 1:
                             difficulty = "pleb";
                             break;
                         case 2:
                             difficulty = "veteran";
                             break;
+                        default:
+                            break;
                     }
                     arrayList.add(new ListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), difficulty));
-                    Log.i("mydebug",quest.getTitle() + " --- " + quest.getDescription());
                 }
                 myAdapter.notifyDataSetChanged();
             }

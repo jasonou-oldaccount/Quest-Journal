@@ -24,54 +24,41 @@ public class QuestTabCreateTab extends AppCompatActivity {
         Firebase newQuest = new Firebase(ref_quest);
 
         EditText title = (EditText) findViewById(R.id.title_input);
-        EditText diff = (EditText) findViewById(R.id.difficulty_input);
         EditText desc = (EditText) findViewById(R.id.description_input);
         EditText dateInput = (EditText) findViewById(R.id.deadline_input);
 
-        if (title.getText().toString().equals ("") | diff.getText().toString().equals ("") |
-                desc.getText().toString().equals("") | dateInput.getText().toString().equals("")) {
+        if (title.getText().toString().equals ("") | desc.getText().toString().equals("") | dateInput.getText().toString().equals("")) {
             Toast.makeText(getApplicationContext(), "Please fill out all fields.", Toast.LENGTH_SHORT).show();
             return;
         }
         int difficulty = 0;
         int date = 0;
-        try {
-            RadioGroup difficultySelection = (RadioGroup) findViewById(R.id.difficulty_i);
-            int selectedID = difficultySelection.getCheckedRadioButtonId();
-            Log.i("debugRadio", Integer.toString(selectedID));
+        RadioGroup difficultySelection = (RadioGroup) findViewById(R.id.difficulty_i);
+        int selectedID = difficultySelection.getCheckedRadioButtonId();
 
-            RadioButton radioSelection = (RadioButton) findViewById(selectedID);
-            System.out.println("debugRadioSelection" + radioSelection.getText());
-            switch (radioSelection.getText().toString()){
-                case "noob":
-                    difficulty = 0;
-                    break;
-                case "pleb":
-                    difficulty = 1;
-                    break;
-                case "veteran":
-                    difficulty = 2;
-                    break;
-            }
-
-
-
-        } catch (NumberFormatException e) {
-            Toast.makeText(getApplicationContext(), "Please enter a valid difficulty level.", Toast.LENGTH_SHORT).show();
+        RadioButton radioSelection = (RadioButton) findViewById(selectedID);
+        switch (radioSelection.getText().toString()){
+            case "pleb":
+                difficulty = 1;
+                break;
+            case "veteran":
+                difficulty = 2;
+                break;
+            default:
+                break;
         }
+
         try {
             date = Integer.parseInt(dateInput.getText().toString());
         } catch (NumberFormatException e) {
             Toast.makeText(getApplicationContext(), "Please enter a valid date.", Toast.LENGTH_SHORT).show();
         }
 
-
         QuestObject createQuest = new QuestObject(title.getText().toString(), difficulty, desc.getText().toString(), date);
         newQuest.push().setValue(createQuest);
         Toast.makeText(getApplicationContext(), "Quest created!", Toast.LENGTH_SHORT).show();
 
         title.setText("");
-        diff.setText("");
         desc.setText("");
         dateInput.setText("");
     }

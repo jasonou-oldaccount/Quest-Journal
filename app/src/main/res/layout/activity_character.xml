@@ -6,6 +6,13 @@
     tools:context="com.example.messiah.questjournal.CharacterActivity"
     android:background="#ffe9ac">
 
+    <ImageView
+        android:id="@+id/main_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background_main"
+        android:scaleType="centerCrop" />
+
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"

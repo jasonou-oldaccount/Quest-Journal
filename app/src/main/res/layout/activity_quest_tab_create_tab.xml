@@ -25,6 +25,31 @@
         android:background="@drawable/input_fields"
         android:hint="Difficulty"
         android:padding="10dp"/>
+<RadioGroup
+    android:id="@+id/difficulty_i"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    android:layout_centerHorizontal="true"
+    android:layout_alignParentBottom="true">
+
+    <RadioButton
+        android:id="@+id/easy_selection"
+        android:text="noob"
+        android:checked="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <RadioButton
+        android:id="@+id/medium_selection"
+        android:text="pleb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <RadioButton
+        android:id="@+id/hard_selection"
+        android:text="veteran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</RadioGroup>
 
     <EditText
         android:id="@+id/description_input"

@@ -37,10 +37,6 @@ public class QuestTabViewTab extends AppCompatActivity {
 
 
 
-    public void refreshQuests(View view){
-        getQuests();
-    }
-
     public void getQuests(){
         Firebase ref = new Firebase("https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests");
         // Attach a listener to read the data at our posts reference
@@ -51,7 +47,20 @@ public class QuestTabViewTab extends AppCompatActivity {
                 System.out.println("There are " + snapshot.getChildrenCount() + " current quests");
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     QuestObject quest = postSnapshot.getValue(QuestObject.class);
-                    arrayList.add(new ListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), Integer.toString(quest.getDifficulty())));
+
+                    String difficulty = "noob";
+                    switch (quest.getDifficulty()){
+                        case 0:
+                            difficulty = "noob";
+                            break;
+                        case 1:
+                            difficulty = "pleb";
+                            break;
+                        case 2:
+                            difficulty = "veteran";
+                            break;
+                    }
+                    arrayList.add(new ListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), difficulty));
                     Log.i("mydebug",quest.getTitle() + " --- " + quest.getDescription());
                 }
                 myAdapter.notifyDataSetChanged();

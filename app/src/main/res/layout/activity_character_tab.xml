@@ -20,7 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text=""
         android:textSize="30dp"
         android:layout_centerHorizontal="true"/>
 

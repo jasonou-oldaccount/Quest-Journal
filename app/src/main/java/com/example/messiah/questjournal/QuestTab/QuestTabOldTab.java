@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class QuestTabOldTab extends AppCompatActivity {
 
-    private ViewQuestAdapter myAdapter;
+    private OldQuestAdapter myAdapter;
     private ArrayList<ViewQuestListElement> arrayList;
 
     @Override
@@ -30,7 +30,7 @@ public class QuestTabOldTab extends AppCompatActivity {
         super.onResume();
 
         arrayList = new ArrayList<ViewQuestListElement>();
-        myAdapter = new ViewQuestAdapter(this, R.layout.view_quest_list_element, arrayList);
+        myAdapter = new OldQuestAdapter(this, R.layout.old_quest_list_element, arrayList);
         ListView myListView = (ListView) findViewById(R.id.questListView);
         myListView.setAdapter(myAdapter);
 

@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.messiah.questjournal.CharacterTabActivity;
 import com.example.messiah.questjournal.MainActivity;
 import com.example.messiah.questjournal.R;
 import com.firebase.client.Firebase;
@@ -66,13 +67,25 @@ public class ViewQuestAdapter extends ArrayAdapter<ViewQuestListElement> {
         final String refCurrentQuest = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests/"+w.questObject.getQuestID();
         final Firebase curQuest = new Firebase(refCurrentQuest);
 
-
-
         // Sets a listener for the button, and a tag for the button as well.
         b.setTag(new Integer(position));
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                switch (w.questObject.getDifficulty()) {
+                    case 0:
+                        CharacterTabActivity.curExp.setValue(CharacterTabActivity.exp + 5);
+                    case 1:
+                        CharacterTabActivity.curExp.setValue(CharacterTabActivity.exp + 10);
+                        break;
+                    case 2:
+                        CharacterTabActivity.curExp.setValue(CharacterTabActivity.exp + 20);
+                        break;
+                    default:
+                        break;
+                }
+
                 String s = v.getTag().toString();
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, s, duration);

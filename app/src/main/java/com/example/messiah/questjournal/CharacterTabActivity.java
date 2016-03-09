@@ -18,20 +18,35 @@ public class CharacterTabActivity extends AppCompatActivity {
 
     ImageButton char_button;
 
+    public static long exp;
+    public static String refExp = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/exp";
+    public static Firebase curExp = new Firebase(refExp);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_tab);
 
         String nickname_ref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/nickname";
-
         Firebase ref = new Firebase(nickname_ref);
-
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 TextView textview_nickname = (TextView) findViewById(R.id.character_nickname);
                 textview_nickname.setText(snapshot.getValue().toString());
+            }
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
+
+        curExp.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                exp = (long) snapshot.getValue();
+                TextView textview_exp = (TextView) findViewById(R.id.exp_view);
+                textview_exp.setText(String.valueOf(exp));
             }
             @Override
             public void onCancelled(FirebaseError firebaseError) {

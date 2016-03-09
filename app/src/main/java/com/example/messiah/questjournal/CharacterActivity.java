@@ -4,9 +4,13 @@ import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 import com.example.messiah.questjournal.QuestTab.QuestTabActivity;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 public class CharacterActivity extends TabActivity {
 

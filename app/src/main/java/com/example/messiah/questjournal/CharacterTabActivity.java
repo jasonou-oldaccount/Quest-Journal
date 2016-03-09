@@ -18,7 +18,7 @@ public class CharacterTabActivity extends AppCompatActivity {
 
     ImageButton char_button;
 
-    public static long exp;
+    public static int exp;
     public static String refExp = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/exp";
     public static Firebase curExp = new Firebase(refExp);
 
@@ -44,12 +44,12 @@ public class CharacterTabActivity extends AppCompatActivity {
         curExp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                exp = (long) snapshot.getValue();
+                String val = snapshot.getValue().toString();
+                exp = Integer.valueOf(val);
                 TextView textview_exp = (TextView) findViewById(R.id.exp_view);
-                String expString = String.valueOf(exp);
-                textview_exp.setText(expString);
+                textview_exp.setText(val);
 
-                int level = (Integer.valueOf(expString))/25;
+                int level = (exp)/25;
                 TextView textView_level = (TextView) findViewById(R.id.level_view);
                 textView_level.setText("Level " + level);
             }

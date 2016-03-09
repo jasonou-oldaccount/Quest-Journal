@@ -10,14 +10,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/noob_char"/>
 
     <TextView
         android:id="@+id/character_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/character_image"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:text=""
         android:textSize="30dp"
         android:layout_centerHorizontal="true"/>
@@ -25,7 +27,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/character_image"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
         android:text="Level 1"
         android:textSize="30dp"
         android:layout_centerHorizontal="true"/>

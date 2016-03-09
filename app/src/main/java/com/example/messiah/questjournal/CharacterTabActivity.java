@@ -46,8 +46,14 @@ public class CharacterTabActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 exp = (long) snapshot.getValue();
                 TextView textview_exp = (TextView) findViewById(R.id.exp_view);
-                textview_exp.setText(String.valueOf(exp));
+                String expString = String.valueOf(exp);
+                textview_exp.setText(expString);
+
+                int level = (Integer.valueOf(expString))/25;
+                TextView textView_level = (TextView) findViewById(R.id.level_view);
+                textView_level.setText("Level " + level);
             }
+
             @Override
             public void onCancelled(FirebaseError firebaseError) {
                 System.out.println("The read failed: " + firebaseError.getMessage());

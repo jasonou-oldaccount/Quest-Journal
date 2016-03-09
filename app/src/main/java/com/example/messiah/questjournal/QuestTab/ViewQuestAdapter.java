@@ -75,14 +75,12 @@ public class ViewQuestAdapter extends ArrayAdapter<ViewQuestListElement> {
 
                 switch (w.questObject.getDifficulty()) {
                     case 0:
-                        System.out.println("EASY ======" + w.questObject.getDifficulty());
                         CharacterTabActivity.curExp.setValue(CharacterTabActivity.exp + 5);
+                        break;
                     case 1:
-                        System.out.println("MEDIUM ======" + w.questObject.getDifficulty());
                         CharacterTabActivity.curExp.setValue(CharacterTabActivity.exp + 10);
                         break;
                     case 2:
-                        System.out.println("HARD ======" + w.questObject.getDifficulty());
                         CharacterTabActivity.curExp.setValue(CharacterTabActivity.exp + 20);
                         break;
                     default:

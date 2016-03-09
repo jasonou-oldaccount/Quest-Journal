@@ -51,7 +51,12 @@ public class CharacterTabActivity extends AppCompatActivity {
                 TextView textview_exp = (TextView) findViewById(R.id.exp_view);
                 textview_exp.setText(val);
 
-                int level = (exp)/25;
+                int level = 0;
+                int temp_exp = exp;
+                for(; temp_exp > 0 ; temp_exp -= 25) {
+                    temp_exp -= (level++*15);
+                }
+                if(temp_exp == 0) ++level;
                 TextView textView_level = (TextView) findViewById(R.id.level_view);
 
                 textView_level.setText("Level " + level);

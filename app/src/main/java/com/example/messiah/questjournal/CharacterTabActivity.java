@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -44,6 +45,7 @@ public class CharacterTabActivity extends AppCompatActivity {
         curExp.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                Log.i("debug", refExp);
                 exp = (long) snapshot.getValue();
                 TextView textview_exp = (TextView) findViewById(R.id.exp_view);
                 String expString = String.valueOf(exp);
@@ -51,6 +53,7 @@ public class CharacterTabActivity extends AppCompatActivity {
 
                 int level = (Integer.valueOf(expString))/25;
                 TextView textView_level = (TextView) findViewById(R.id.level_view);
+
                 textView_level.setText("Level " + level);
             }
 

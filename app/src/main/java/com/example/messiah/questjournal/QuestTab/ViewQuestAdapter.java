@@ -1,4 +1,4 @@
-package com.example.messiah.questjournal;
+package com.example.messiah.questjournal.QuestTab;
 
 /**
  * Created by Raul on 3/5/2016.
@@ -15,16 +15,18 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.messiah.questjournal.MainActivity;
+import com.example.messiah.questjournal.R;
 import com.firebase.client.Firebase;
 
 import java.util.List;
 
-public class MyAdapter extends ArrayAdapter<ListElement> {
+public class ViewQuestAdapter extends ArrayAdapter<ViewQuestListElement> {
 
     int resource;
     Context context;
 
-    public MyAdapter(Context _context, int _resource, List<ListElement> items) {
+    public ViewQuestAdapter(Context _context, int _resource, List<ViewQuestListElement> items) {
         super(_context, _resource, items);
         resource = _resource;
         context = _context;
@@ -34,7 +36,7 @@ public class MyAdapter extends ArrayAdapter<ListElement> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LinearLayout newView;
 
-        final ListElement w = getItem(position);
+        final ViewQuestListElement w = getItem(position);
 
         // Inflate a new view if necessary.
         if (convertView == null) {

@@ -1,11 +1,12 @@
-package com.example.messiah.questjournal;
+package com.example.messiah.questjournal.QuestTab;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.ListView;
 
+import com.example.messiah.questjournal.MainActivity;
+import com.example.messiah.questjournal.R;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -15,8 +16,8 @@ import java.util.ArrayList;
 
 public class QuestTabViewTab extends AppCompatActivity {
 
-    private MyAdapter myAdapter;
-    private ArrayList<ListElement> arrayList;
+    private ViewQuestAdapter myAdapter;
+    private ArrayList<ViewQuestListElement> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +29,8 @@ public class QuestTabViewTab extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        arrayList = new ArrayList<ListElement>();
-        myAdapter = new MyAdapter(this, R.layout.list_element , arrayList);
+        arrayList = new ArrayList<ViewQuestListElement>();
+        myAdapter = new ViewQuestAdapter(this, R.layout.view_quest_list_element, arrayList);
         ListView myListView = (ListView) findViewById(R.id.questListView);
         myListView.setAdapter(myAdapter);
 
@@ -44,19 +45,18 @@ public class QuestTabViewTab extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     QuestObject quest = postSnapshot.getValue(QuestObject.class);
 
-                    String difficulty = "noob";
+                    String difficulty = "Noob";
                     switch (quest.getDifficulty()) {
                         case 1:
-                            difficulty = "pleb";
+                            difficulty = "Captain";
                             break;
                         case 2:
-                            difficulty = "veteran";
+                            difficulty = "Veteran";
                             break;
                         default:
                             break;
                     }
-
-                    arrayList.add(new ListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), difficulty, quest));
+                    arrayList.add(new ViewQuestListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), difficulty, quest));
                 }
                 myAdapter.notifyDataSetChanged();
             }

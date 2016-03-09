@@ -1,4 +1,4 @@
-package com.example.messiah.questjournal;
+package com.example.messiah.questjournal.QuestTab;
 
 import java.util.Date;
 

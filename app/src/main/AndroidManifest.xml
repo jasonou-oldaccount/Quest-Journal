@@ -29,13 +29,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".CharacterTabActivity" />
-        <activity android:name=".QuestTabActivity" />
+        <activity android:name=".QuestTab.QuestTabActivity" />
         <activity android:name=".ShopTabActivity" />
         <activity android:name=".AchievementTabActivity" />
         <activity android:name=".SettingTabActivity" />
-        <activity android:name=".QuestTabCreateTab" />
-        <activity android:name=".QuestTabOldTab" />
-        <activity android:name=".QuestTabViewTab"></activity>
+        <activity android:name=".QuestTab.QuestTabCreateTab" />
+        <activity android:name=".QuestTab.QuestTabViewTab"></activity>
+        <activity android:name=".QuestTab.QuestTabOldTab"></activity>
     </application>
 
 </manifest>

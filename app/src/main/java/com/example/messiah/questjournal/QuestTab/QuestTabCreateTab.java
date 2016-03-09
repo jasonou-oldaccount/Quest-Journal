@@ -1,4 +1,4 @@
-package com.example.messiah.questjournal;
+package com.example.messiah.questjournal.QuestTab;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.messiah.questjournal.MainActivity;
+import com.example.messiah.questjournal.R;
 import com.firebase.client.Firebase;
 
 public class QuestTabCreateTab extends AppCompatActivity {

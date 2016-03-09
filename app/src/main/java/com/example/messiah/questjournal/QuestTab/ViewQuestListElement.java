@@ -1,12 +1,14 @@
-package com.example.messiah.questjournal;
+package com.example.messiah.questjournal.QuestTab;
+
+import com.example.messiah.questjournal.QuestTab.QuestObject;
 
 /**
  * Created by Raul on 3/5/2016.
  */
-public class ListElement {
-    ListElement() {};
+public class ViewQuestListElement {
+    ViewQuestListElement() {};
 
-    ListElement(String title, String desc, String deadline, String diff, QuestObject questObject) {
+    ViewQuestListElement(String title, String desc, String deadline, String diff, QuestObject questObject) {
         this.title = title;
         this.difficulty = diff;
         this.description = desc;

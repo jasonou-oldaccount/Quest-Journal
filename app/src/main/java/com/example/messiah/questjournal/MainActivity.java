@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
             newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(newIntent);
-            finish();
         }
     }
 
@@ -68,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(newIntent);
-                finish();
             }
             @Override
             public void onAuthenticationError(FirebaseError firebaseError) {

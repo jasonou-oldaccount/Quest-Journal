@@ -5,6 +5,7 @@ package com.example.messiah.questjournal;
  */
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.firebase.client.Firebase;
 
 import java.util.List;
 
@@ -31,7 +34,7 @@ public class MyAdapter extends ArrayAdapter<ListElement> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LinearLayout newView;
 
-        ListElement w = getItem(position);
+        final ListElement w = getItem(position);
 
         // Inflate a new view if necessary.
         if (convertView == null) {
@@ -54,37 +57,29 @@ public class MyAdapter extends ArrayAdapter<ListElement> {
         diffView.setText(w.difficulty);
         deadView.setText(w.deadline);
 
-
-
-
+        String refOldQuest = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/OldQuests/";
+        final Firebase OldQuest = new Firebase(refOldQuest);
         Button b = (Button) newView.findViewById(R.id.move_to_button);
+
+        final String refCurrentQuest = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests/"+w.questObject.getQuestID();
+        final Firebase curQuest = new Firebase(refCurrentQuest);
+
+
 
         // Sets a listener for the button, and a tag for the button as well.
         b.setTag(new Integer(position));
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Reacts to a button press.
-                // Gets the integer tag of the button.
                 String s = v.getTag().toString();
                 int duration = Toast.LENGTH_SHORT;
                 Toast toast = Toast.makeText(context, s, duration);
+                OldQuest.push().setValue(w.questObject);
+                Log.i("debug", refCurrentQuest);
+                curQuest.setValue(null);
                 toast.show();
             }
         });
-
-        // Set a listener for the whole list item.
-        newView.setTag(w.title);
-        newView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String s = v.getTag().toString();
-                int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, s, duration);
-                toast.show();
-            }
-        });
-
         return newView;
     }
 }

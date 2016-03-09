@@ -39,6 +39,7 @@ public class QuestTabViewTab extends AppCompatActivity {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+                arrayList.clear();
                 System.out.println("There are " + snapshot.getChildrenCount() + " current quests");
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     QuestObject quest = postSnapshot.getValue(QuestObject.class);
@@ -54,7 +55,8 @@ public class QuestTabViewTab extends AppCompatActivity {
                         default:
                             break;
                     }
-                    arrayList.add(new ListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), difficulty));
+
+                    arrayList.add(new ListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), difficulty, quest));
                 }
                 myAdapter.notifyDataSetChanged();
             }

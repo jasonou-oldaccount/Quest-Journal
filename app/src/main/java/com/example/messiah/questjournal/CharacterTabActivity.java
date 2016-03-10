@@ -46,17 +46,24 @@ public class CharacterTabActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 String val = snapshot.getValue().toString();
                 exp = Integer.valueOf(val);
-                TextView textview_exp = (TextView) findViewById(R.id.exp_view);
-                textview_exp.setText(val);
 
                 int level = 0;
                 int temp_exp = exp;
-                for(; temp_exp > 0 ; temp_exp -= 25) {
-                    temp_exp -= (level++*15);
-                }
+
+                for(; temp_exp > 0 ; temp_exp -= 25) temp_exp -= (level++*15);
+
                 if(temp_exp == 0) ++level;
                 TextView textView_level = (TextView) findViewById(R.id.level_view);
                 textView_level.setText("Level " + level);
+
+                TextView textview_exp = (TextView) findViewById(R.id.exp_view);
+                int curr_exp_on_level = exp;
+                --level;
+                for(int i = 0 ; i < level; ++i) {
+                    curr_exp_on_level -= 25;
+                    curr_exp_on_level -= (i*15);
+                }
+                textview_exp.setText(curr_exp_on_level + " / " + (level*15 + 25));
             }
 
             @Override

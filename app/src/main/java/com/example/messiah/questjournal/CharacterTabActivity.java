@@ -47,10 +47,8 @@ public class CharacterTabActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 String val = snapshot.getValue().toString();
                 exp = Integer.valueOf(val);
-
                 TextView textview_exp = (TextView) findViewById(R.id.exp_view);
                 textview_exp.setText(val);
-
                 int level = 0;
                 int temp_exp = exp;
                 for(; temp_exp > 0 ; temp_exp -= 25) {
@@ -67,32 +65,7 @@ public class CharacterTabActivity extends AppCompatActivity {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
-
         char_button = (ImageButton) findViewById(R.id.character_image);
         // char_button.setOnTouchListener(this);
     }
-
-    /* float x, y = 0.0f;
-    boolean moving = false;
-
-    @Override
-    public boolean onTouch(View arg0, MotionEvent arg1) {
-        switch(arg1.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                moving = true;
-                break;
-            case MotionEvent.ACTION_MOVE:
-                if(moving) {
-                    x = arg1.getRawX() - char_button.getWidth()/2;
-                    y = arg1.getRawY() - char_button.getHeight()/2;
-                    char_button.setX(x);
-                    char_button.setY(y);
-                }
-                break;
-            case MotionEvent.ACTION_UP:
-                moving = false;
-                break;
-        }
-        return true;
-    } */
 }

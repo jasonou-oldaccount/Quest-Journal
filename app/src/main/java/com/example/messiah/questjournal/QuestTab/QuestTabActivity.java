@@ -1,18 +1,11 @@
-package com.example.messiah.questjournal;
+package com.example.messiah.questjournal.QuestTab;
 
 import android.app.TabActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.TabHost;
 
-import com.firebase.client.Firebase;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import com.example.messiah.questjournal.R;
 
 public class QuestTabActivity extends TabActivity {
 

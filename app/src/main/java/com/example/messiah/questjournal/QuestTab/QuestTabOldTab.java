@@ -1,11 +1,12 @@
-package com.example.messiah.questjournal;
+package com.example.messiah.questjournal.QuestTab;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.ListView;
 
+import com.example.messiah.questjournal.MainActivity;
+import com.example.messiah.questjournal.R;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
@@ -13,10 +14,10 @@ import com.firebase.client.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class QuestTabViewTab extends AppCompatActivity {
+public class QuestTabOldTab extends AppCompatActivity {
 
-    private MyAdapter myAdapter;
-    private ArrayList<ListElement> arrayList;
+    private OldQuestAdapter myAdapter;
+    private ArrayList<ViewQuestListElement> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,33 +29,34 @@ public class QuestTabViewTab extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        arrayList = new ArrayList<ListElement>();
-        myAdapter = new MyAdapter(this, R.layout.list_element , arrayList);
+        arrayList = new ArrayList<ViewQuestListElement>();
+        myAdapter = new OldQuestAdapter(this, R.layout.old_quest_list_element, arrayList);
         ListView myListView = (ListView) findViewById(R.id.questListView);
         myListView.setAdapter(myAdapter);
 
-        Firebase ref = new Firebase("https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests");
+        Firebase ref = new Firebase("https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/OldQuests");
         // Attach a listener to read the data at our posts reference
 
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                System.out.println("There are " + snapshot.getChildrenCount() + " current quests");
+                arrayList.clear();
+                System.out.println("There are " + snapshot.getChildrenCount() + " Old quests");
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     QuestObject quest = postSnapshot.getValue(QuestObject.class);
 
-                    String difficulty = "noob";
+                    String difficulty = "Noob";
                     switch (quest.getDifficulty()) {
                         case 1:
-                            difficulty = "pleb";
+                            difficulty = "Captain";
                             break;
                         case 2:
-                            difficulty = "veteran";
+                            difficulty = "Veteran";
                             break;
                         default:
                             break;
                     }
-                    arrayList.add(new ListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), difficulty));
+                    arrayList.add(new ViewQuestListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), difficulty, quest));
                 }
                 myAdapter.notifyDataSetChanged();
             }

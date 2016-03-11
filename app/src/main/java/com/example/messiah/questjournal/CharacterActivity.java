@@ -1,16 +1,16 @@
 package com.example.messiah.questjournal;
 
-import android.app.LocalActivityManager;
 import android.app.TabActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.TabHost;
-import android.widget.Toast;
+import android.widget.TextView;
 
+import com.example.messiah.questjournal.QuestTab.QuestTabActivity;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
 public class CharacterActivity extends TabActivity {
 

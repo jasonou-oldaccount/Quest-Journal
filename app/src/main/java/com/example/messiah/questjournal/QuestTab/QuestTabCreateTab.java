@@ -1,4 +1,4 @@
-package com.example.messiah.questjournal;
+package com.example.messiah.questjournal.QuestTab;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.example.messiah.questjournal.MainActivity;
+import com.example.messiah.questjournal.R;
 import com.firebase.client.Firebase;
 
 public class QuestTabCreateTab extends AppCompatActivity {
@@ -52,10 +54,17 @@ public class QuestTabCreateTab extends AppCompatActivity {
             date = Integer.parseInt(dateInput.getText().toString());
         } catch (NumberFormatException e) {
             Toast.makeText(getApplicationContext(), "Please enter a valid date.", Toast.LENGTH_SHORT).show();
+            return;
         }
 
-        QuestObject createQuest = new QuestObject(title.getText().toString(), difficulty, desc.getText().toString(), date);
-        newQuest.push().setValue(createQuest);
+        //Setting up a new quest object that includes title, description, difficulty, deadline, and id
+        //the id is used to move the quest from current list to completed list
+        Firebase newFireQuest= newQuest.push();
+        String questID = newFireQuest.getKey();
+        QuestObject createQuest = new QuestObject(title.getText().toString(), difficulty, desc.getText().toString(), date, questID);
+        newFireQuest.setValue(createQuest);
+
+        Log.i("debug", questID);
         Toast.makeText(getApplicationContext(), "Quest created!", Toast.LENGTH_SHORT).show();
 
         title.setText("");

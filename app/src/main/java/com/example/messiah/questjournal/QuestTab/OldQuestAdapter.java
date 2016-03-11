@@ -1,8 +1,4 @@
-package com.example.messiah.questjournal;
-
-/**
- * Created by Raul on 3/5/2016.
- */
+package com.example.messiah.questjournal.QuestTab;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,15 +7,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.example.messiah.questjournal.R;
 
 import java.util.List;
 
-public class MyAdapter extends ArrayAdapter<ListElement> {
+/**
+ * Created by Messiah on 3/9/2016.
+ */
+public class OldQuestAdapter extends ArrayAdapter<ViewQuestListElement> {
 
     int resource;
     Context context;
 
-    public MyAdapter(Context _context, int _resource, List<ListElement> items) {
+    public OldQuestAdapter(Context _context, int _resource, List<ViewQuestListElement> items) {
         super(_context, _resource, items);
         resource = _resource;
         context = _context;
@@ -29,7 +29,7 @@ public class MyAdapter extends ArrayAdapter<ListElement> {
     public View getView(int position, View convertView, ViewGroup parent) {
         LinearLayout newView;
 
-        ListElement w = getItem(position);
+        final ViewQuestListElement w = getItem(position);
 
         // Inflate a new view if necessary.
         if (convertView == null) {
@@ -51,7 +51,7 @@ public class MyAdapter extends ArrayAdapter<ListElement> {
         descView.setText(w.description);
         diffView.setText(w.difficulty);
         deadView.setText(w.deadline);
+
         return newView;
     }
 }
-

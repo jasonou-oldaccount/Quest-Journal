@@ -1,30 +1,51 @@
 package com.example.messiah.questjournal;
 
 import android.app.TabActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TabHost;
-import android.widget.TextView;
 
 import com.example.messiah.questjournal.QuestTab.QuestTabActivity;
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 
 public class CharacterActivity extends TabActivity {
 
     Firebase ref;
+    MediaPlayer myMusic;
+    MediaPlayer mySound;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_character);
         Firebase.setAndroidContext(this);
 
         ref = MainActivity.ref;
 
-        TabHost mTabHost = getTabHost();
+        final TabHost mTabHost;
+        mTabHost = getTabHost();
+        mySound = MediaPlayer.create(getApplicationContext(), R.raw.pop);
+
+        mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+                                             @Override
+                                             public void onTabChanged(String tabId) {
+                                                 if (mySound.isPlaying()) {
+                                                     mySound.stop();
+                                                     mySound.release();
+                                                     mySound = MediaPlayer.create(getApplicationContext(), R.raw.pop);
+                                                 }
+                                                 mySound.start();
+                                                 Log.i("debug", "" + mTabHost.getCurrentTab());
+                                             }
+                                         }
+
+        );
 
         mTabHost.getTabWidget().setStripEnabled(false);
 
@@ -59,5 +80,19 @@ public class CharacterActivity extends TabActivity {
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 
         mTabHost.setCurrentTab(0);
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        myMusic.release();
+    }
+
+    @Override
+    protected void onResume() {
+        myMusic = MediaPlayer.create(this, R.raw.maplestory);
+        myMusic.start();
+        super.onResume();
     }
 }

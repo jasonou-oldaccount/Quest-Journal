@@ -1,11 +1,14 @@
 package com.example.messiah.questjournal;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +45,25 @@ public class SettingTabActivity extends AppCompatActivity {
             }
         });
 
-
+        Switch music = (Switch) findViewById(R.id.switchMusic);
+        music.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    //CharacterActivity.myMusic= MediaPlayer.create(getApplicationContext(), R.raw.maplestory);
+                    CharacterActivity.myMusic.start();
+                    // The toggle is enabled
+//                    if (CharacterActivity.myMusic.isPlaying()) {
+//                        CharacterActivity.myMusic.stop();
+//                        CharacterActivity.myMusic.release();
+//                        CharacterActivity.myMusic= MediaPlayer.create(getApplicationContext(), R.raw.pop);
+//                    }
+                } else {
+                    // The toggle is disabled
+                    CharacterActivity.myMusic.pause();
+//                    CharacterActivity.myMusic.release();
+                }
+            }
+        });
     }
 
     public void updateNickname(View view){

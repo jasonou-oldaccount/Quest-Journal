@@ -15,7 +15,7 @@ import com.firebase.client.Firebase;
 public class CharacterActivity extends TabActivity {
 
     Firebase ref;
-    MediaPlayer myMusic;
+    public static MediaPlayer myMusic;
     MediaPlayer mySound;
     boolean firstLoad = true;
 

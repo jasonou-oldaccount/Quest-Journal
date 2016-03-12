@@ -24,9 +24,8 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class QuestTabCreateTab extends AppCompatActivity {
-    Calendar calendar;
     EditText dateInput;
-    Button db;
+
     //DatePickerDialog.OnDateSetListener date;
     int year_x, month_x, day_x;
     //private DatePicker datePicker;

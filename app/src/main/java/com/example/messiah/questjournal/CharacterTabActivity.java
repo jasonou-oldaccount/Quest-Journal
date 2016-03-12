@@ -76,10 +76,10 @@ public class CharacterTabActivity extends AppCompatActivity {
             }
         });
         char_button = (ImageButton) findViewById(R.id.character_image);
-        char_button.setOnTouchListener(new MyTouchListener());
+        //char_button.setOnTouchListener(new MyTouchListener());
         //char_button.setOnTouchListener(this);
     }
-    private final class MyTouchListener implements View.OnTouchListener{
+    /*private final class MyTouchListener implements View.OnTouchListener{
         public boolean onTouch(View view, MotionEvent me){
             if (me.getAction() == MotionEvent.ACTION_DOWN) {
                 ClipData data = ClipData.newPlainText("", "");
@@ -91,7 +91,7 @@ public class CharacterTabActivity extends AppCompatActivity {
                 return false;
             }
         }
-    }
+    } */
 //
 //    class MyDragListener implements View.OnDragListener {
 //

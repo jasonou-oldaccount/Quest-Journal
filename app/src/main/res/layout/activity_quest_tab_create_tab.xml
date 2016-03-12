@@ -55,13 +55,15 @@
 
     <EditText
         android:id="@+id/deadline_input"
+        android:textIsSelectable="true"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_below="@id/description_input"
         android:layout_centerHorizontal="true"
         android:background="@drawable/input_fields"
         android:hint="Deadline (Date)"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:onClick="setDate" />
 
     <Button
         android:id="@+id/create_quest"

@@ -56,7 +56,7 @@ public class QuestTabOldTab extends AppCompatActivity {
                         default:
                             break;
                     }
-                    arrayList.add(new ViewQuestListElement(quest.getTitle(), quest.getDescription(), Integer.toString(quest.getDeadline()), difficulty, quest));
+                    arrayList.add(new ViewQuestListElement(quest.getTitle(), quest.getDescription(), quest.getDeadline(), difficulty, quest));
                 }
                 myAdapter.notifyDataSetChanged();
             }

@@ -10,11 +10,11 @@ public class QuestObject {
     private int difficulty;
     private String description;
     private String questID;
-    private int deadline;
+    private String deadline;
 
     public QuestObject(){}
 
-    public QuestObject(String title, int difficulty, String description, int deadline, String questID) {
+    public QuestObject(String title, int difficulty, String description, String deadline, String questID) {
         this.title = title;
         this.difficulty = difficulty;
         this.description = description;
@@ -36,7 +36,7 @@ public class QuestObject {
         return description;
     }
 
-    public int getDeadline() {
+    public String getDeadline() {
         return deadline;
     }
 }

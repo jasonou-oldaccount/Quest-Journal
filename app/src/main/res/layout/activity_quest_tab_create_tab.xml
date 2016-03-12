@@ -40,7 +40,6 @@
             android:text="veteran"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
     </RadioGroup>
 
     <EditText
@@ -51,13 +50,14 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/input_fields"
         android:hint="Description"
-        android:padding="10dp"/>
+        android:padding="10dp"  />
 
     <EditText
         android:id="@+id/deadline_input"
         android:textIsSelectable="true"
         android:layout_width="300dp"
         android:layout_height="40dp"
+        android:focusable="false"
         android:layout_below="@id/description_input"
         android:layout_centerHorizontal="true"
         android:background="@drawable/input_fields"

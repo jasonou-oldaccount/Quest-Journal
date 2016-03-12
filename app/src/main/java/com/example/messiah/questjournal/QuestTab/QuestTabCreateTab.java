@@ -48,6 +48,8 @@ public class QuestTabCreateTab extends AppCompatActivity {
                   new View.OnClickListener() {
                       @Override
                       public void onClick(View view) {
+                          String val = (isFinishing()) ? "isFinishing" : "finished";
+                          Log.i("debug", val);
                           if (!isFinishing()) {
                               showDialog(DIALOG_ID);
                           }
@@ -55,6 +57,8 @@ public class QuestTabCreateTab extends AppCompatActivity {
                   }
           );
     }
+
+
     @Override
     protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_ID) {

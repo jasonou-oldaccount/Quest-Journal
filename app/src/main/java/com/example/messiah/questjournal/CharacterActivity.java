@@ -17,7 +17,7 @@ public class CharacterActivity extends TabActivity {
     Firebase ref;
     MediaPlayer myMusic;
     MediaPlayer mySound;
-
+    boolean firstLoad = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +32,14 @@ public class CharacterActivity extends TabActivity {
         mTabHost = getTabHost();
         mySound = MediaPlayer.create(getApplicationContext(), R.raw.pop);
 
+
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
                                              @Override
                                              public void onTabChanged(String tabId) {
+                                                 if(firstLoad){
+                                                     firstLoad = !firstLoad;
+                                                     return;
+                                                 }
                                                  if (mySound.isPlaying()) {
                                                      mySound.stop();
                                                      mySound.release();

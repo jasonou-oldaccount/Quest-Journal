@@ -34,23 +34,21 @@ public class CharacterActivity extends TabActivity {
 
 
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-                                             @Override
-                                             public void onTabChanged(String tabId) {
-                                                 if(firstLoad){
-                                                     firstLoad = !firstLoad;
-                                                     return;
-                                                 }
-                                                 if (mySound.isPlaying()) {
-                                                     mySound.stop();
-                                                     mySound.release();
-                                                     mySound = MediaPlayer.create(getApplicationContext(), R.raw.pop);
-                                                 }
-                                                 mySound.start();
-                                                 Log.i("debug", "" + mTabHost.getCurrentTab());
-                                             }
-                                         }
-
-        );
+            @Override
+            public void onTabChanged(String tabId) {
+                if(firstLoad){
+                    firstLoad = !firstLoad;
+                    return;
+                }
+                if (mySound.isPlaying()) {
+                    mySound.stop();
+                    mySound.release();
+                    mySound = MediaPlayer.create(getApplicationContext(), R.raw.pop);
+                }
+                mySound.start();
+                Log.i("debug", "" + mTabHost.getCurrentTab());
+            }
+        });
 
         mTabHost.getTabWidget().setStripEnabled(false);
 
@@ -86,7 +84,6 @@ public class CharacterActivity extends TabActivity {
 
         mTabHost.setCurrentTab(0);
     }
-
 
     @Override
     protected void onPause() {

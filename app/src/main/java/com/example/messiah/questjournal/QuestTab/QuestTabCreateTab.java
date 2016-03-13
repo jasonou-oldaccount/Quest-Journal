@@ -98,10 +98,10 @@ public class QuestTabCreateTab extends AppCompatActivity {
 
         RadioButton radioSelection = (RadioButton) findViewById(selectedID);
         switch (radioSelection.getText().toString()){
-            case "pleb":
+            case "Normal":
                 difficulty = 1;
                 break;
-            case "veteran":
+            case "Advanced":
                 difficulty = 2;
                 break;
             default:

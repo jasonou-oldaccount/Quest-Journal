@@ -91,7 +91,7 @@ public class SettingTabActivity extends AppCompatActivity {
                     prefSound = true;
                     CharacterActivity.mySound.start();
                 } else {
-                    prefMusic = false;
+                    prefSound = false;
                 }
             }
         });

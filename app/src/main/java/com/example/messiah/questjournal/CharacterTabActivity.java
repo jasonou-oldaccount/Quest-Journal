@@ -20,12 +20,13 @@ import com.firebase.client.ValueEventListener;
 public class CharacterTabActivity extends AppCompatActivity {
 
     ImageButton char_button;
+    long oldQuestCount;
+    long currQuestCount;
 
     public static int exp;
     public static String refExp = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/exp";
     public static Firebase curExp = new Firebase(refExp);
-//    public static String totalUQ = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/incompleteQuests";
-//    public static Firebase curIncomplete = new Firebase(totalUQ);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +81,57 @@ public class CharacterTabActivity extends AppCompatActivity {
         char_button = (ImageButton) findViewById(R.id.character_image);
         //char_button.setOnTouchListener(new MyTouchListener());
         //char_button.setOnTouchListener(this);
+
+
+
+
+        String oldQuests_ref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/OldQuests";
+        Firebase ref_oldQ = new Firebase(oldQuests_ref);
+
+        ref_oldQ.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                oldQuestCount = snapshot.getChildrenCount();
+                TextView oldQ = (TextView) findViewById(R.id.old_quests_view);
+                if (oldQuestCount == 1) {
+                    oldQ.setText(oldQuestCount + " quest completed.");
+                } else {
+                    oldQ.setText(oldQuestCount + " quests completed.");
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
+
+        String currQuests_ref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/CurrentQuests";
+        Firebase ref_currQ = new Firebase(currQuests_ref);
+
+        ref_currQ.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                currQuestCount = snapshot.getChildrenCount();
+                TextView currQ = (TextView) findViewById(R.id.curr_quests_view);
+                if (currQuestCount == 1) {
+                    currQ.setText(currQuestCount + " quest to go!");
+                } else {
+                    currQ.setText(currQuestCount + " quests to go!");
+                }
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
+
+
+
+
+
+
     }
     /*private final class MyTouchListener implements View.OnTouchListener{
         public boolean onTouch(View view, MotionEvent me){

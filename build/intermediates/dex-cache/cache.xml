@@ -1,3 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Anshika\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.2.2\285cb9c666f0f0f3dd8a1be04e1f457eb7b15113\jackson-annotations-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\jackson-annotations-2.2.2_f9ee0f196cf57b6dfa3074fe91d94fc543dcdd1d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anshika\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-android\2.5.2\f19f10d6276aa0b380e2d05d2ab3272d693a5433\firebase-client-android-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f19f10d6276aa0b380e2d05d2ab3272d693a5433">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\firebase-client-android-2.5.2_b0bc56311d2a92664b9ecbcb75c1b72f66b181f5.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_8af172f77098166ba5424fd3ff6fe151c7cd48bc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anshika\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-jvm\2.5.2\91731b8f5868a3e8a8a773f29b8d06b5c358f5bb\firebase-client-jvm-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="91731b8f5868a3e8a8a773f29b8d06b5c358f5bb">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\firebase-client-jvm-2.5.2_66c74afb9b9161af073230eb293eba1a8dc08923.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anshika\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_e8e52e8f26a2d85284c62464b2dbcc09149fcc7b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anshika\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.2.2\3c8f6018eaa72d43b261181e801e6f8676c16ef6\jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\jackson-databind-2.2.2_9d153975421338b40d31253128002a7d4425bd8b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_8fab3c7665cc2c5dbf7d21b802f5f33d1dc98851.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anshika\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.2\d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b\jackson-core-2.2.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\jackson-core-2.2.2_5817ad179d70b586c76e9b2234899d3a260f3962.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_9ac36249c9e9f01a30656f59a553a2f301ad800e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Anshika\.gradle\caches\modules-2\files-2.1\com.firebase\tubesock\0.0.12\6ec0bbd3e161a73ed672284b587fd32309a86d7a\tubesock-0.0.12.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
+        <dex dex="C:\Users\Anshika\Documents\Winter 2016\CMPS 121\QuestJournal\app\build\intermediates\pre-dexed\debug\tubesock-0.0.12_ecc336130920fc70a395560fa9db9c70ccb0f78b.jar" />
+    </item>
+
+</items>

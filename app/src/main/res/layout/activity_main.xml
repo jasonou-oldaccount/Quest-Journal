@@ -64,6 +64,7 @@
 
     <EditText
         android:id="@+id/character"
+        android:maxLength="10"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:hint="Character Name"

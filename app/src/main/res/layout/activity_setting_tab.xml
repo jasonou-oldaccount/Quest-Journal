@@ -31,13 +31,15 @@
             android:layout_height="40dp"
             android:hint="Change Nickname"
             android:padding="10dp"
+            android:maxLength="12"
+            android:textSize="15dp"
             android:background="@drawable/input_fields" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="70dp"
             android:layout_height="50dp"
-            android:layout_marginTop="-5dp"
+            android:layout_marginTop="0dp"
             android:text="Save"
             android:onClick="updateNickname" />
 

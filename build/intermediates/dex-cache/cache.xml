@@ -1,3 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\Messiah\Desktop\Project\Quest-Journal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="b5e7892fb0708e792e0e933c4c0a0ca0ac7831fb">
+        <dex dex="C:\Users\Messiah\Desktop\Project\Quest-Journal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-ads-8.4.0_8e746538d4bef61ff5a8a220936013f93cb384ed.jar" />
+    </item>
+    <item
+        jar="C:\Users\Messiah\Desktop\Project\Quest-Journal\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="C:\Users\Messiah\Desktop\Project\Quest-Journal\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.4.0_f1e72448a605517aff70787d00fbcd15073ad7bc.jar" />
+    </item>
+
+</items>

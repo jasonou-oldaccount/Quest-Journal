@@ -14,33 +14,34 @@
         android:layout_marginBottom="30dp"
         android:background="@drawable/noob_char"/>
 
-    <TextView
-        android:id="@+id/character_nickname"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:textSize="30dp"
-        android:layout_centerHorizontal="true"/>
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/exp_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:textSize="30dp"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/character_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:textSize="50dp"
+            android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:id="@+id/level_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:text="Level 1"
-        android:textSize="30dp"
-        android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/exp_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"/>
 
+        <TextView
+            android:id="@+id/level_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level 1"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

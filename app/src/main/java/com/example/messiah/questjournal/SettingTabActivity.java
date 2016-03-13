@@ -3,6 +3,7 @@ package com.example.messiah.questjournal;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -25,17 +26,17 @@ import java.util.Map;
 
 public class SettingTabActivity extends AppCompatActivity {
 
-    boolean prefSound;
-    boolean prefMusic;
+    static boolean  prefSound;
+    static boolean prefMusic;
 
-    private void loadSavedPreferences() {
+    public void loadSavedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(this);
-        prefMusic = sharedPreferences.getBoolean("setSound", true);
-        prefSound = sharedPreferences.getBoolean("setMusic", true);
+        prefMusic = sharedPreferences.getBoolean("setSound", false);
+        prefSound = sharedPreferences.getBoolean("setMusic", false);
     }
 
-    private void savePreferences(String key, boolean value) {
+    public void savePreferences(String key, boolean value) {
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -47,6 +48,7 @@ public class SettingTabActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_tab);
+
 
         String nickname_ref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/nickname";
 
@@ -67,23 +69,29 @@ public class SettingTabActivity extends AppCompatActivity {
         });
 
         Switch music = (Switch) findViewById(R.id.switchMusic);
+        music.setChecked(prefMusic);
         music.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    //CharacterActivity.myMusic= MediaPlayer.create(getApplicationContext(), R.raw.maplestory);
                     CharacterActivity.myMusic.start();
-                    savePreferences("setSound", true);
-                    savePreferences("setMusic", true);
-                    // The toggle is enabled
-//                    if (CharacterActivity.myMusic.isPlaying()) {
-//                        CharacterActivity.myMusic.stop();
-//                        CharacterActivity.myMusic.release();
-//                        CharacterActivity.myMusic= MediaPlayer.create(getApplicationContext(), R.raw.pop);
-//                    }
+                    prefMusic = true;
                 } else {
                     // The toggle is disabled
                     CharacterActivity.myMusic.pause();
-//                    CharacterActivity.myMusic.release();
+                    prefMusic = false;
+                }
+            }
+        });
+
+        Switch sound = (Switch) findViewById(R.id.switchSound);
+        sound.setChecked(prefSound);
+        sound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    prefSound = true;
+                    CharacterActivity.mySound.start();
+                } else {
+                    prefMusic = false;
                 }
             }
         });

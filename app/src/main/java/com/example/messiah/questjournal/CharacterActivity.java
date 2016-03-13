@@ -3,8 +3,10 @@ package com.example.messiah.questjournal;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TabHost;
@@ -16,8 +18,19 @@ public class CharacterActivity extends TabActivity {
 
     Firebase ref;
     public static MediaPlayer myMusic;
-    MediaPlayer mySound;
+    public static MediaPlayer mySound;
     boolean firstLoad = true;
+
+
+//    boolean prefSound;
+//    boolean prefMusic;
+//
+//    public void loadSavedPreferences() {
+//        SharedPreferences sharedPreferences = PreferenceManager
+//                .getDefaultSharedPreferences(this);
+//        prefMusic = sharedPreferences.getBoolean("setSound", true);
+//        prefSound = sharedPreferences.getBoolean("setMusic", true);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +58,8 @@ public class CharacterActivity extends TabActivity {
                     mySound.release();
                     mySound = MediaPlayer.create(getApplicationContext(), R.raw.pop);
                 }
-                mySound.start();
+                if(SettingTabActivity.prefSound)
+                    mySound.start();
                 Log.i("debug", "" + mTabHost.getCurrentTab());
             }
         });
@@ -93,8 +107,15 @@ public class CharacterActivity extends TabActivity {
 
     @Override
     protected void onResume() {
-        myMusic = MediaPlayer.create(this, R.raw.maplestory);
-        myMusic.start();
+        myMusic = MediaPlayer.create(this, R.raw.ninja);
+
+        if(SettingTabActivity.prefMusic) {
+            Log.i("debug", "musicOn");
+            myMusic.start();
+        }else Log.i("debug", "musicOff");
+
+
+
         super.onResume();
     }
 }

@@ -25,14 +25,10 @@ import java.util.Locale;
 
 public class QuestTabCreateTab extends AppCompatActivity {
     EditText dateInput;
-<<<<<<< HEAD
-    int year_dl, month_dl, day_dl;
-=======
 
     //DatePickerDialog.OnDateSetListener date;
-    int year_x, month_x, day_x;
+    int year_dl, month_dl, day_dl;
     //private DatePicker datePicker;
->>>>>>> ce0a29108bb1f68b3135a424d96dc6b06ace6247
     static final int DIALOG_ID = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +60,6 @@ public class QuestTabCreateTab extends AppCompatActivity {
           );
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ce0a29108bb1f68b3135a424d96dc6b06ace6247
     @Override
     protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_ID) {

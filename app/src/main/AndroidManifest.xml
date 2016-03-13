@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.messiah.questjournal">
+    package="com.example.messiah.questjournal" >
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -9,10 +9,10 @@
         android:icon="@drawable/short_logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,7 @@
         </activity>
         <activity
             android:name=".CharacterActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="com.example.messiah.questjournal.CharacterActivity" />
 
@@ -34,8 +34,8 @@
         <activity android:name=".AchievementTabActivity" />
         <activity android:name=".SettingTabActivity" />
         <activity android:name=".QuestTab.QuestTabCreateTab" />
-        <activity android:name=".QuestTab.QuestTabViewTab"></activity>
-        <activity android:name=".QuestTab.QuestTabOldTab"></activity>
+        <activity android:name=".QuestTab.QuestTabViewTab" />
+        <activity android:name=".QuestTab.QuestTabOldTab" />
     </application>
 
 </manifest>

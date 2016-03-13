@@ -6,7 +6,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/brick_tiles_2_large"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:orientation="vertical"
@@ -47,5 +49,6 @@
             android:text="Move to completed"
             android:id="@+id/move_to_button" />
     </LinearLayout>
+
 
 </LinearLayout>

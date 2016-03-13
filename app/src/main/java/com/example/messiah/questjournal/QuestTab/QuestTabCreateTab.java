@@ -27,21 +27,24 @@ public class QuestTabCreateTab extends AppCompatActivity {
     EditText dateInput;
 
     //DatePickerDialog.OnDateSetListener date;
-    int year_x, month_x, day_x;
+    int year_dl, month_dl, day_dl;
     //private DatePicker datePicker;
     static final int DIALOG_ID = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quest_tab_create_tab);
+
+        // Getting current date as reference for user's deadline entry
         final Calendar cal = Calendar.getInstance();
-        year_x = cal.get(Calendar.YEAR);
-        month_x = cal.get(Calendar.MONTH);
-        day_x = cal.get(Calendar.DAY_OF_MONTH);
+        year_dl = cal.get(Calendar.YEAR);
+        month_dl = cal.get(Calendar.MONTH);
+        day_dl = cal.get(Calendar.DAY_OF_MONTH);
         dateInput = (EditText) findViewById(R.id.deadline_input);
+
         showDialogOnClick();
     }
-
+    // Shows calendar when deadline EditText box is clicked
     public void showDialogOnClick() {
           dateInput.setOnClickListener(
                   new View.OnClickListener() {
@@ -57,11 +60,10 @@ public class QuestTabCreateTab extends AppCompatActivity {
           );
     }
 
-
     @Override
     protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_ID) {
-            return new DatePickerDialog(this.getParent(), dpListener, year_x, month_x, day_x);
+            return new DatePickerDialog(this.getParent(), dpListener, year_dl, month_dl, day_dl);
         } else {
             return null;
         }
@@ -71,11 +73,10 @@ public class QuestTabCreateTab extends AppCompatActivity {
             new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            year_x = year;
-            month_x = monthOfYear + 1;
-            day_x = dayOfMonth;
-            //Toast.makeText(QuestTabCreateTab.this, year_x + "/" + month_x +  "/" + day_x, Toast.LENGTH_SHORT).show();
-            dateInput.setText((month_x) + "/" + day_x +  "/" + year_x);
+            year_dl = year;
+            month_dl = monthOfYear + 1;
+            day_dl = dayOfMonth;
+            dateInput.setText((month_dl) + "/" + day_dl +  "/" + year_dl);
         }
     };
 
@@ -92,7 +93,6 @@ public class QuestTabCreateTab extends AppCompatActivity {
             return;
         }
         int difficulty = 0;
-        //int date = 0;
         RadioGroup difficultySelection = (RadioGroup) findViewById(R.id.difficulty_i);
         int selectedID = difficultySelection.getCheckedRadioButtonId();
 
@@ -107,13 +107,6 @@ public class QuestTabCreateTab extends AppCompatActivity {
             default:
                 break;
         }
-
-//        try {
-//            date = Integer.parseInt(dateInput.getText().toString());
-//        } catch (NumberFormatException e) {
-//            Toast.makeText(getApplicationContext(), "Please enter a valid date.", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
 
         //Setting up a new quest object that includes title, description, difficulty, deadline, and id
         //the id is used to move the quest from current list to completed list

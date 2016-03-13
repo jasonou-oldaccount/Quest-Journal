@@ -49,8 +49,8 @@ public class OldQuestAdapter extends ArrayAdapter<ViewQuestListElement> {
 
         titleView.setText(w.title);
         descView.setText(w.description);
-        diffView.setText(w.difficulty);
-        deadView.setText(w.deadline);
+        diffView.setText("Difficulty: " + w.difficulty);
+        deadView.setText("Deadline: " + w.deadline);
 
         return newView;
     }

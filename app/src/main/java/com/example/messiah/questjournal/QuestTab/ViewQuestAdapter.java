@@ -57,8 +57,8 @@ public class ViewQuestAdapter extends ArrayAdapter<ViewQuestListElement> {
 
         titleView.setText(w.title);
         descView.setText(w.description);
-        diffView.setText(w.difficulty);
-        deadView.setText(w.deadline);
+        diffView.setText("Difficulty: " + w.difficulty);
+        deadView.setText("Deadline: " + w.deadline);
 
         String refOldQuest = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/OldQuests/";
         final Firebase OldQuest = new Firebase(refOldQuest);

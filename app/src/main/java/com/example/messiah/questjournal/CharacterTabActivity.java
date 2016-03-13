@@ -25,6 +25,8 @@ public class CharacterTabActivity extends AppCompatActivity {
     public static int exp;
     public static String refExp = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/exp";
     public static Firebase curExp = new Firebase(refExp);
+//    public static String totalUQ = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/incompleteQuests";
+//    public static Firebase curIncomplete = new Firebase(totalUQ);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

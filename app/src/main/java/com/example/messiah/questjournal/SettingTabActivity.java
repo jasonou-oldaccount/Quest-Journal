@@ -1,5 +1,6 @@
 package com.example.messiah.questjournal;
 
+import android.app.TabActivity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
@@ -75,6 +76,9 @@ public class SettingTabActivity extends AppCompatActivity {
         Map<String, Object> nickname = new HashMap<String, Object>();
         nickname.put("nickname", newName.getText().toString());
         ref.updateChildren(nickname);
+
+        TabActivity tabs = (TabActivity) getParent();
+        tabs.getTabHost().setCurrentTab(0);
     }
     public void logOut(View view){
         MainActivity.ref.unauth();

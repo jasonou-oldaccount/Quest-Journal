@@ -2,6 +2,7 @@ package com.example.messiah.questjournal.QuestTab;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TabActivity;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -121,5 +122,8 @@ public class QuestTabCreateTab extends AppCompatActivity {
         title.setText("");
         desc.setText("");
         dateInput.setText("");
+
+        TabActivity tabs = (TabActivity) getParent();
+        tabs.getTabHost().setCurrentTab(0);
     }
 }

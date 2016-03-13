@@ -54,6 +54,7 @@
         android:layout_marginBottom="50dp" />
 
     <Switch
+        android:layout_alignParentLeft="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sound"
@@ -63,9 +64,10 @@
         android:checked="true" />
 
     <Switch
+        android:layout_alignParentLeft="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Music"
+        android:text="Music "
         android:id="@+id/switchMusic"
         android:layout_below="@+id/switchSound"
         android:layout_centerHorizontal="true"

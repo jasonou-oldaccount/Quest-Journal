@@ -1,7 +1,9 @@
 package com.example.messiah.questjournal;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +23,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SettingTabActivity extends AppCompatActivity {
+
+    boolean prefSound;
+    boolean prefMusic;
+
+    private void loadSavedPreferences() {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        prefMusic = sharedPreferences.getBoolean("setSound", true);
+        prefSound = sharedPreferences.getBoolean("setMusic", true);
+    }
+
+    private void savePreferences(String key, boolean value) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +71,8 @@ public class SettingTabActivity extends AppCompatActivity {
                 if (isChecked) {
                     //CharacterActivity.myMusic= MediaPlayer.create(getApplicationContext(), R.raw.maplestory);
                     CharacterActivity.myMusic.start();
+                    savePreferences("setSound", true);
+                    savePreferences("setMusic", true);
                     // The toggle is enabled
 //                    if (CharacterActivity.myMusic.isPlaying()) {
 //                        CharacterActivity.myMusic.stop();
@@ -65,7 +87,6 @@ public class SettingTabActivity extends AppCompatActivity {
             }
         });
     }
-
     public void updateNickname(View view){
         EditText newName = (EditText) findViewById(R.id.settings_nickname);
         String nicknameref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID;

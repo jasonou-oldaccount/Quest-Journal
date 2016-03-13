@@ -9,7 +9,9 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:orientation="vertical"
@@ -19,11 +21,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="vertical" >
 
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/QuestTitle"
                     android:text="new text"
@@ -33,8 +34,7 @@
                 <TextView
                     android:id="@+id/QuestDeadline"
                     android:text="new text"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
             </LinearLayout>
@@ -54,6 +54,7 @@
 
     </LinearLayout>
 
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,3 +63,4 @@
         android:layout_gravity="center" />
 
 </LinearLayout>
+

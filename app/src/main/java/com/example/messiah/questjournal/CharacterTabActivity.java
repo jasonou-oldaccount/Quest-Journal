@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -70,7 +71,10 @@ public class CharacterTabActivity extends AppCompatActivity {
                     curr_exp_on_level -= 25;
                     curr_exp_on_level -= (i*15);
                 }
-                textview_exp.setText(curr_exp_on_level + " / " + (level*15 + 25));
+                ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+                float theprogress = ((float)curr_exp_on_level/(float)(level*15 + 25))*100;
+                progressBar.setProgress((int)theprogress);
+                textview_exp.setText(curr_exp_on_level + " / " + (level*15 + 25) + " EXP");
             }
 
             @Override

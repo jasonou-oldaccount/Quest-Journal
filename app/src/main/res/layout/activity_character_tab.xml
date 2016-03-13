@@ -28,14 +28,25 @@
                 android:id="@+id/character_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="40dp"
+                android:textSize="30dp"
                 android:layout_centerHorizontal="true"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                android:max="100"
+                android:minHeight="20dp"
+                android:minWidth="200dp"
+                android:progress="0" />
 
             <TextView
                 android:id="@+id/exp_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:layout_centerHorizontal="true"/>
 
             <TextView
@@ -43,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Level 1"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:layout_centerHorizontal="true"/>
 
         </LinearLayout>

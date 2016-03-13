@@ -2,7 +2,10 @@ package com.example.messiah.questjournal;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.media.MediaPlayer;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,10 +26,29 @@ import java.util.Map;
 
 public class SettingTabActivity extends AppCompatActivity {
 
+    static boolean  prefSound;
+    static boolean prefMusic;
+
+    public void loadSavedPreferences() {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        prefMusic = sharedPreferences.getBoolean("setSound", false);
+        prefSound = sharedPreferences.getBoolean("setMusic", false);
+    }
+
+    public void savePreferences(String key, boolean value) {
+        SharedPreferences sharedPreferences = PreferenceManager
+                .getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_tab);
+
 
         String nickname_ref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/nickname";
 
@@ -47,26 +69,33 @@ public class SettingTabActivity extends AppCompatActivity {
         });
 
         Switch music = (Switch) findViewById(R.id.switchMusic);
+        music.setChecked(prefMusic);
         music.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    //CharacterActivity.myMusic= MediaPlayer.create(getApplicationContext(), R.raw.maplestory);
                     CharacterActivity.myMusic.start();
-                    // The toggle is enabled
-//                    if (CharacterActivity.myMusic.isPlaying()) {
-//                        CharacterActivity.myMusic.stop();
-//                        CharacterActivity.myMusic.release();
-//                        CharacterActivity.myMusic= MediaPlayer.create(getApplicationContext(), R.raw.pop);
-//                    }
+                    prefMusic = true;
                 } else {
                     // The toggle is disabled
                     CharacterActivity.myMusic.pause();
-//                    CharacterActivity.myMusic.release();
+                    prefMusic = false;
+                }
+            }
+        });
+
+        Switch sound = (Switch) findViewById(R.id.switchSound);
+        sound.setChecked(prefSound);
+        sound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    prefSound = true;
+                    CharacterActivity.mySound.start();
+                } else {
+                    prefSound = false;
                 }
             }
         });
     }
-
     public void updateNickname(View view){
         EditText newName = (EditText) findViewById(R.id.settings_nickname);
         String nicknameref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID;

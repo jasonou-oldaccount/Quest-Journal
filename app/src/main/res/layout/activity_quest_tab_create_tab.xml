@@ -63,11 +63,14 @@
     <EditText
         android:id="@+id/description_input"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/difficulty_i"
         android:layout_centerHorizontal="true"
         android:background="@drawable/input_fields"
         android:hint="Description"
+        android:inputType="textCapSentences|textMultiLine"
+        android:maxLength="2000"
+        android:maxLines="4"
         android:padding="10dp"  />
 
     <EditText

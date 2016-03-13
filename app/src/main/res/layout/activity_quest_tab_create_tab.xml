@@ -18,7 +18,7 @@
 
     <RadioGroup
         android:id="@+id/difficulty_i"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true"
@@ -26,21 +26,38 @@
 
         <RadioButton
             android:id="@+id/easy_selection"
-            android:text="noob"
+            android:text="Beginner"
             android:checked="true"
-            android:layout_width="wrap_content"
+            android:background="@drawable/radio_button_background"
+            android:button="@android:color/transparent"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
             android:id="@+id/medium_selection"
-            android:text="pleb"
-            android:layout_width="wrap_content"
+            android:text="Normal"
+            android:background="@drawable/radio_button_background"
+            android:button="@android:color/transparent"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content" />
         <RadioButton
             android:id="@+id/hard_selection"
-            android:text="veteran"
-            android:layout_width="wrap_content"
+            android:text="Advanced"
+            android:background="@drawable/radio_button_background"
+            android:button="@android:color/transparent"
+            android:textAlignment="center"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content" />
-
     </RadioGroup>
 
     <EditText
@@ -51,13 +68,14 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/input_fields"
         android:hint="Description"
-        android:padding="10dp"/>
+        android:padding="10dp"  />
 
     <EditText
         android:id="@+id/deadline_input"
         android:textIsSelectable="true"
         android:layout_width="300dp"
         android:layout_height="40dp"
+        android:focusable="false"
         android:layout_below="@id/description_input"
         android:layout_centerHorizontal="true"
         android:background="@drawable/input_fields"

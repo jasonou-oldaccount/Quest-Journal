@@ -24,9 +24,15 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class QuestTabCreateTab extends AppCompatActivity {
-    Calendar calendar;
     EditText dateInput;
+<<<<<<< HEAD
     int year_dl, month_dl, day_dl;
+=======
+
+    //DatePickerDialog.OnDateSetListener date;
+    int year_x, month_x, day_x;
+    //private DatePicker datePicker;
+>>>>>>> ce0a29108bb1f68b3135a424d96dc6b06ace6247
     static final int DIALOG_ID = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,8 @@ public class QuestTabCreateTab extends AppCompatActivity {
                   new View.OnClickListener() {
                       @Override
                       public void onClick(View view) {
+                          String val = (isFinishing()) ? "isFinishing" : "finished";
+                          Log.i("debug", val);
                           if (!isFinishing()) {
                               showDialog(DIALOG_ID);
                           }
@@ -56,6 +64,10 @@ public class QuestTabCreateTab extends AppCompatActivity {
           );
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ce0a29108bb1f68b3135a424d96dc6b06ace6247
     @Override
     protected Dialog onCreateDialog(int id) {
         if (id == DIALOG_ID) {
@@ -94,10 +106,10 @@ public class QuestTabCreateTab extends AppCompatActivity {
 
         RadioButton radioSelection = (RadioButton) findViewById(selectedID);
         switch (radioSelection.getText().toString()){
-            case "pleb":
+            case "Normal":
                 difficulty = 1;
                 break;
-            case "veteran":
+            case "Advanced":
                 difficulty = 2;
                 break;
             default:

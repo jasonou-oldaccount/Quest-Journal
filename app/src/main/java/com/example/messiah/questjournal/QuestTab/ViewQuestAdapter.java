@@ -89,11 +89,10 @@ public class ViewQuestAdapter extends ArrayAdapter<ViewQuestListElement> {
 
                 String s = v.getTag().toString();
                 int duration = Toast.LENGTH_SHORT;
-                Toast toast = Toast.makeText(context, s, duration);
+                //Toast toast = Toast.makeText(context, s, duration).show();
                 OldQuest.push().setValue(w.questObject);
                 Log.i("debug", refCurrentQuest);
                 curQuest.setValue(null);
-                toast.show();
             }
         });
         return newView;

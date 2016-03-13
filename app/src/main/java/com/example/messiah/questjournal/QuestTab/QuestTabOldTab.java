@@ -45,13 +45,13 @@ public class QuestTabOldTab extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     QuestObject quest = postSnapshot.getValue(QuestObject.class);
 
-                    String difficulty = "Noob";
+                    String difficulty = "Beginner";
                     switch (quest.getDifficulty()) {
                         case 1:
-                            difficulty = "Captain";
+                            difficulty = "Normal";
                             break;
                         case 2:
-                            difficulty = "Veteran";
+                            difficulty = "Advanced";
                             break;
                         default:
                             break;

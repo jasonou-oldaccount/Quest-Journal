@@ -3,13 +3,19 @@ package com.example.messiah.questjournal.QuestTab;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.example.messiah.questjournal.R;
+import com.example.messiah.questjournal.SettingTabActivity;
 
 public class QuestTabActivity extends TabActivity {
+
+    public static MediaPlayer mySound;
+    boolean firstLoad = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +23,25 @@ public class QuestTabActivity extends TabActivity {
         setContentView(R.layout.activity_quest_tab);
 
         TabHost qTabHost = getTabHost();
+
+        mySound = MediaPlayer.create(getApplicationContext(), R.raw.pop);
+        qTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                if (firstLoad) {
+                    firstLoad = !firstLoad;
+                    return;
+                }
+                if (mySound.isPlaying()) {
+                    mySound.stop();
+                    mySound.release();
+                    mySound = MediaPlayer.create(getApplicationContext(), R.raw.pop);
+                }
+                if (SettingTabActivity.prefSound);
+                    mySound.start();
+//                Log.i("debug", "" + qTabHost.getCurrentTab());
+            }
+        });
 
         qTabHost.getTabWidget().setStripEnabled(false);
 

@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class SettingTabActivity extends AppCompatActivity {
 
-    static boolean  prefSound;
+    public static boolean  prefSound;
     static boolean prefMusic;
 
     public void loadSavedPreferences() {
@@ -74,6 +74,7 @@ public class SettingTabActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     CharacterActivity.myMusic.start();
+                    CharacterActivity.myMusic.setLooping(true);
                     prefMusic = true;
                 } else {
                     // The toggle is disabled
@@ -117,5 +118,6 @@ public class SettingTabActivity extends AppCompatActivity {
         newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(newIntent);
+        finish();
     }
 }

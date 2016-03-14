@@ -56,7 +56,9 @@ public class SettingTabActivity extends AppCompatActivity {
         TextView settingNick = (TextView) findViewById(R.id.settings_nickname);
         TextView soundS = (TextView) findViewById(R.id.switchSound);
         TextView musicS = (TextView) findViewById(R.id.switchMusic);
+        TextView button = (TextView) findViewById(R.id.button);
 
+        button.setTypeface(type);
         soundS.setTypeface(type);
         musicS.setTypeface(type);
         settingNick.setTypeface(type);

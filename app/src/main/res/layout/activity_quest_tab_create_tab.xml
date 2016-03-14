@@ -91,7 +91,7 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_below="@id/deadline_input"
-        android:text="Create Quest"
+        android:text="START QUEST"
         android:layout_centerHorizontal="true"
         android:onClick="createQuest"/>
 

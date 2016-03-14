@@ -47,7 +47,7 @@ public class QuestTabActivity extends TabActivity {
 
         qTabHost.addTab(qTabHost
                 .newTabSpec("View")
-                .setIndicator("V i e w")
+                .setIndicator("N E W")
                 .setContent(new Intent(this, QuestTabViewTab.class)
                         .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)));
 

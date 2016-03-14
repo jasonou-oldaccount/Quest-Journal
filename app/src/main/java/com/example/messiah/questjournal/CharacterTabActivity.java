@@ -2,6 +2,7 @@ package com.example.messiah.questjournal;
 
 import android.app.Activity;
 import android.content.ClipData;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import com.firebase.client.ValueEventListener;
 
 public class CharacterTabActivity extends AppCompatActivity {
 
+    Typeface type;
+
     ImageButton char_button;
     long oldQuestCount;
     long currQuestCount;
@@ -34,12 +37,15 @@ public class CharacterTabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_tab);
 
+        type = Typeface.createFromAsset(getAssets(),"fonts/pixel_font.ttf");
+
         String nickname_ref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/nickname";
         Firebase ref = new Firebase(nickname_ref);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 TextView textview_nickname = (TextView) findViewById(R.id.character_nickname);
+                textview_nickname.setTypeface(type);
                 textview_nickname.setText(snapshot.getValue().toString());
             }
             @Override
@@ -61,7 +67,7 @@ public class CharacterTabActivity extends AppCompatActivity {
 
                 if(temp_exp == 0) ++level;
                 TextView textView_level = (TextView) findViewById(R.id.level_view);
-
+                textView_level.setTypeface(type);
                 textView_level.setText("Level " + level);
 
                 TextView textview_exp = (TextView) findViewById(R.id.exp_view);
@@ -73,7 +79,8 @@ public class CharacterTabActivity extends AppCompatActivity {
                 }
                 ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar1);
                 float theprogress = ((float)curr_exp_on_level/(float)(level*15 + 25))*100;
-                progressBar.setProgress((int)theprogress);
+                progressBar.setProgress((int) theprogress);
+                textview_exp.setTypeface(type);
                 textview_exp.setText(curr_exp_on_level + " / " + (level*15 + 25) + " EXP");
             }
 
@@ -86,8 +93,8 @@ public class CharacterTabActivity extends AppCompatActivity {
         //char_button.setOnTouchListener(new MyTouchListener());
         //char_button.setOnTouchListener(this);
 
-
-
+        TextView statTitle = (TextView) findViewById(R.id.title_stat);
+        statTitle.setTypeface(type);
 
         String oldQuests_ref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/OldQuests";
         Firebase ref_oldQ = new Firebase(oldQuests_ref);
@@ -97,6 +104,7 @@ public class CharacterTabActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 oldQuestCount = snapshot.getChildrenCount();
                 TextView oldQ = (TextView) findViewById(R.id.old_quests_view);
+                oldQ.setTypeface(type);
                 if (oldQuestCount == 1) {
                     oldQ.setText(oldQuestCount + " quest completed.");
                 } else {
@@ -118,6 +126,7 @@ public class CharacterTabActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot snapshot) {
                 currQuestCount = snapshot.getChildrenCount();
                 TextView currQ = (TextView) findViewById(R.id.curr_quests_view);
+                currQ.setTypeface(type);
                 if (currQuestCount == 1) {
                     currQ.setText(currQuestCount + " quest to go!");
                 } else {
@@ -130,12 +139,6 @@ public class CharacterTabActivity extends AppCompatActivity {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
-
-
-
-
-
-
     }
     /*private final class MyTouchListener implements View.OnTouchListener{
         public boolean onTouch(View view, MotionEvent me){
@@ -154,8 +157,6 @@ public class CharacterTabActivity extends AppCompatActivity {
 //    class MyDragListener implements View.OnDragListener {
 //
 //    }
-
-
 
     /* float x, y = 0.0f;
     boolean moving = false;

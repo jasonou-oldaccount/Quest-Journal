@@ -14,6 +14,8 @@ import com.example.messiah.questjournal.SettingTabActivity;
 
 public class QuestTabActivity extends TabActivity {
 
+    public static Typeface type;
+
     public static MediaPlayer mySound;
     boolean firstLoad = true;
 
@@ -66,9 +68,12 @@ public class QuestTabActivity extends TabActivity {
 
         qTabHost.setCurrentTab(0);
 
+        type = Typeface.createFromAsset(getAssets(),"fonts/pixel_font.ttf");
+
         for(int i=0; i<qTabHost.getTabWidget().getChildCount(); i++) {
             TextView tv = (TextView) qTabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
-            tv.setTypeface(null, Typeface.BOLD);
+            tv.setTypeface(type);
+            tv.setTextSize(15);
         }
     }
 

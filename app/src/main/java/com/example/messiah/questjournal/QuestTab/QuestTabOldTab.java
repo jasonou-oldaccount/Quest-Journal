@@ -1,9 +1,11 @@
 package com.example.messiah.questjournal.QuestTab;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.messiah.questjournal.MainActivity;
 import com.example.messiah.questjournal.R;
@@ -11,6 +13,8 @@ import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 

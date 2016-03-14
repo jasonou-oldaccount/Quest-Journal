@@ -2,9 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.messiah.questjournal.QuestTab.QuestTabCreateTab"
-    android:id="@+id/create_quest_tab">
+    android:id="@+id/create_quest_tab"
+    android:background="@drawable/quest_entry"
+    android:paddingBottom="20dp">
+
+    <TextView
+        android:id="@+id/quest_creator"
+        android:text="QUEST CREATOR"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"/>
 
     <EditText
         android:id="@+id/title_input"

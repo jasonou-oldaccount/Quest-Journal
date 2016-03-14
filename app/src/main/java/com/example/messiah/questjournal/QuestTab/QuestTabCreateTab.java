@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TabActivity;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,17 +15,23 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.messiah.questjournal.MainActivity;
 import com.example.messiah.questjournal.R;
 import com.firebase.client.Firebase;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class QuestTabCreateTab extends AppCompatActivity {
+
+    Typeface type;
+
     EditText dateInput;
 
     //DatePickerDialog.OnDateSetListener date;
@@ -44,6 +51,23 @@ public class QuestTabCreateTab extends AppCompatActivity {
         dateInput = (EditText) findViewById(R.id.deadline_input);
 
         showDialogOnClick();
+
+        type = Typeface.createFromAsset(getAssets(),"fonts/pixel_font.ttf");
+        TextView qcTitle = (TextView) findViewById(R.id.quest_creator);
+        TextView titleInput = (TextView) findViewById(R.id.title_input);
+        TextView easySelect = (TextView) findViewById(R.id.easy_selection);
+        TextView medSelect = (TextView) findViewById(R.id.medium_selection);
+        TextView hardSelect = (TextView) findViewById(R.id.hard_selection);
+        TextView descIn = (TextView) findViewById(R.id.description_input);
+        TextView deadLi = (TextView) findViewById(R.id.deadline_input);
+
+        descIn.setTypeface(type);
+        deadLi.setTypeface(type);
+        easySelect.setTypeface(type);
+        medSelect.setTypeface(type);
+        hardSelect.setTypeface(type);
+        titleInput.setTypeface(type);
+        qcTitle.setTypeface(type);
     }
     // Shows calendar when deadline EditText box is clicked
     public void showDialogOnClick() {

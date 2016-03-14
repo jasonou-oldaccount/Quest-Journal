@@ -2,6 +2,7 @@ package com.example.messiah.questjournal;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,14 +26,24 @@ public class MainActivity extends AppCompatActivity {
     public static String UID;
     int createUserClick = 0;
 
-
-
+    Typeface type;
 
     // on create establish firebase connection
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        type = Typeface.createFromAsset(getAssets(),"fonts/pixel_font.ttf");
+        TextView user = (TextView) findViewById(R.id.username);
+        TextView password = (TextView) findViewById(R.id.password);
+        TextView character = (TextView) findViewById(R.id.character);
+        TextView pass2 = (TextView) findViewById(R.id.password2);
+
+        pass2.setTypeface(type);
+        user.setTypeface(type);
+        password.setTypeface(type);
+        character.setTypeface(type);
 
         // Sets the Android Context for Firebase
 
@@ -60,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     public void signIn(View v) {
         TextView user = (TextView) findViewById(R.id.username);
         TextView status = (TextView) findViewById(R.id.password);
-//        final TextView nickname = (TextView) findViewById(R.id.character);
+//      final TextView nickname = (TextView) findViewById(R.id.character);
 
         ref.authWithPassword(user.getText().toString(), status.getText().toString(), new Firebase.AuthResultHandler() {
             @Override
@@ -90,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         TextView password = (TextView) findViewById(R.id.password);
 
         final TextView character = (TextView) findViewById(R.id.character);
+
         TextView pass2 = (TextView) findViewById(R.id.password2);
         ImageButton logIn = (ImageButton) findViewById(R.id.login_button);
         ImageButton create = (ImageButton) findViewById(R.id.create_button);

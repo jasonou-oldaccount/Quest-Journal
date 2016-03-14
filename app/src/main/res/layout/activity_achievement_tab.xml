@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/achievement_coming_soon"
         android:textStyle="bold"
         android:textSize="30dp"
         android:textColor="#000"

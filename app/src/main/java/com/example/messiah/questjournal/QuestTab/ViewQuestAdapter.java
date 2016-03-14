@@ -5,6 +5,7 @@ package com.example.messiah.questjournal.QuestTab;
  */
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,6 +55,13 @@ public class ViewQuestAdapter extends ArrayAdapter<ViewQuestListElement> {
         TextView descView = (TextView) newView.findViewById(R.id.QuestDescription);
         TextView diffView = (TextView) newView.findViewById(R.id.QuestDifficulty);
         TextView deadView = (TextView) newView.findViewById(R.id.QuestDeadline);
+
+        titleView.setPaintFlags(titleView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
+        titleView.setTypeface(QuestTabActivity.type);
+        descView.setTypeface(QuestTabActivity.type);
+        diffView.setTypeface(QuestTabActivity.type);
+        deadView.setTypeface(QuestTabActivity.type);
 
         titleView.setText(w.title);
         descView.setText(w.description);

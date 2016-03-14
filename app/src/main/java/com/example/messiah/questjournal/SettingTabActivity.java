@@ -29,6 +29,8 @@ public class SettingTabActivity extends AppCompatActivity {
     public static boolean  prefSound = true;
     static boolean prefMusic = true;
 
+    Typeface type;
+
     public void loadSavedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(this);
@@ -49,6 +51,16 @@ public class SettingTabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_tab);
 
+        type = Typeface.createFromAsset(getAssets(),"fonts/pixel_font.ttf");
+        TextView settingName = (TextView) findViewById(R.id.settings_name);
+        TextView settingNick = (TextView) findViewById(R.id.settings_nickname);
+        TextView soundS = (TextView) findViewById(R.id.switchSound);
+        TextView musicS = (TextView) findViewById(R.id.switchMusic);
+
+        soundS.setTypeface(type);
+        musicS.setTypeface(type);
+        settingNick.setTypeface(type);
+        settingName.setTypeface(type);
 
         String nickname_ref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID + "/nickname";
 

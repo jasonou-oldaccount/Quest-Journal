@@ -26,8 +26,8 @@ import java.util.Map;
 
 public class SettingTabActivity extends AppCompatActivity {
 
-    public static boolean  prefSound;
-    static boolean prefMusic;
+    public static boolean  prefSound = true;
+    static boolean prefMusic = true;
 
     public void loadSavedPreferences() {
         SharedPreferences sharedPreferences = PreferenceManager

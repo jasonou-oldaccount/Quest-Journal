@@ -37,7 +37,7 @@ public class QuestTabActivity extends TabActivity {
                     mySound.release();
                     mySound = MediaPlayer.create(getApplicationContext(), R.raw.pop);
                 }
-                if (SettingTabActivity.prefSound);
+                if (SettingTabActivity.prefSound)
                     mySound.start();
 //                Log.i("debug", "" + qTabHost.getCurrentTab());
             }

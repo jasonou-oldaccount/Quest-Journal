@@ -118,7 +118,7 @@ public class SettingTabActivity extends AppCompatActivity {
         String nicknameref = "https://questjournal.firebaseio.com/users/" + MainActivity.UID;
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        if(newName.getText().toString() == ""){
+        if(newName.getText().toString().equals("")){
             Toast.makeText(getApplicationContext(), "Please enter a new name", Toast.LENGTH_SHORT).show();
             return;
         }

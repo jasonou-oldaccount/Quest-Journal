@@ -39,7 +39,7 @@
                 android:indeterminate="false"
                 android:max="100"
                 android:minHeight="20dp"
-                android:minWidth="200dp"
+                android:minWidth="150dp"
                 android:progress="0" />
 
             <TextView
@@ -77,12 +77,12 @@
                 android:id="@+id/old_quests_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
             <TextView
                 android:id="@+id/curr_quests_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
         </LinearLayout>
 
     </LinearLayout>

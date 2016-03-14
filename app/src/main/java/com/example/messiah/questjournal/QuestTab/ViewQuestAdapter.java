@@ -55,9 +55,11 @@ public class ViewQuestAdapter extends ArrayAdapter<ViewQuestListElement> {
         TextView descView = (TextView) newView.findViewById(R.id.QuestDescription);
         TextView diffView = (TextView) newView.findViewById(R.id.QuestDifficulty);
         TextView deadView = (TextView) newView.findViewById(R.id.QuestDeadline);
+        TextView button = (TextView) newView.findViewById(R.id.move_to_button);
 
         titleView.setPaintFlags(titleView.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
+        button.setTypeface(QuestTabActivity.type);
         titleView.setTypeface(QuestTabActivity.type);
         descView.setTypeface(QuestTabActivity.type);
         diffView.setTypeface(QuestTabActivity.type);

@@ -55,8 +55,10 @@
     </LinearLayout>
 
     <Button
+        android:background="@drawable/radio_button_background"
+        android:padding="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="37dp"
         android:text="COMPLETE QUEST"
         android:id="@+id/move_to_button"
         android:layout_gravity="center" />

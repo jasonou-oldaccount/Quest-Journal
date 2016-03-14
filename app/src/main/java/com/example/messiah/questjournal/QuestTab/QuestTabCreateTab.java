@@ -60,7 +60,9 @@ public class QuestTabCreateTab extends AppCompatActivity {
         TextView hardSelect = (TextView) findViewById(R.id.hard_selection);
         TextView descIn = (TextView) findViewById(R.id.description_input);
         TextView deadLi = (TextView) findViewById(R.id.deadline_input);
+        TextView create = (TextView) findViewById(R.id.create_quest);
 
+        create.setTypeface(type);
         descIn.setTypeface(type);
         deadLi.setTypeface(type);
         easySelect.setTypeface(type);

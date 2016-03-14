@@ -108,6 +108,7 @@ public class CharacterActivity extends TabActivity {
     @Override
     protected void onResume() {
         myMusic = MediaPlayer.create(this, R.raw.ninja);
+        myMusic.setVolume(0f, .6f);
 
         if(SettingTabActivity.prefMusic) {
             Log.i("debug", "musicOn");
